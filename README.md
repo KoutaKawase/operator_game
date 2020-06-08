@@ -1,3 +1,5 @@
+**ここからもともとあるREADME**
+
 # typescript-game-sample
 
 **typescript-game-sample**はTypeScriptでAkashicのゲームを作る際のサンプルプロジェクトです。
