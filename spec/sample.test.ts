@@ -1,5 +1,5 @@
 // NOTE: スクリプトアセットとして実行される環境をエミュレーションするためにglobal.gを生成する
-global.g = require("@akashic/akashic-engine");
+import g from '@akashic/akashic-engine';
 
 describe("mainScene", () => {
 	beforeEach(() => {

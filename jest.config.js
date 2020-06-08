@@ -87,7 +87,7 @@ module.exports = {
 	// notifyMode: "failure-change",
 
 	// A preset that is used as a base for Jest's configuration
-	// preset: null,
+	preset: "ts-jest",
 
 	// Run tests from one or more projects
 	// projects: null,
@@ -108,7 +108,7 @@ module.exports = {
 	// restoreMocks: false,
 
 	// The root directory that Jest should scan for tests and modules within
-	rootDir: "./",
+	rootDir: "./spec",
 
 	// A list of paths to directories that Jest should use to search for files in
 	// roots: [
@@ -142,7 +142,7 @@ module.exports = {
 	//   "**/?(*.)+(spec|test).[tj]s?(x)"
 	// ],
 	// testMatch: ["./**/*[sS]pec.js"],
-	testMatch: ["./**/*[sS]pec.js"],
+	testMatch: ["./**/*.test.ts"],
 
 	// An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
 	// testPathIgnorePatterns: [

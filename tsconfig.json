@@ -4,13 +4,17 @@
     "lib": ["es5"],
     "noImplicitAny": true,
     "module": "commonjs" ,
+    "strict": true,
     "outDir": "./script",
-    "types" : []
+    "esModuleInterop": true,
+    "types" : ["node"]
   },
   "files": [
+    "node_modules/@types/jest/index.d.ts",
     "node_modules/@akashic/akashic-engine/lib/main.d.ts"
   ],
   "include": [
     "./src/**/*.ts"
-  ]
+  ],
+  "exclude": ["spec/**/*.test.ts"]
 }
