@@ -1,4 +1,6 @@
+---
 **ここからもともとあるREADME**
+---
 
 # typescript-game-sample
 
