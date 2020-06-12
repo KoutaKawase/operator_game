@@ -41,6 +41,21 @@
 			"type": "script",
 			"path": "script/main2.js",
 			"global": true
+		},
+		"MainSceneController": {
+			"type": "script",
+			"path": "script/MainSceneController.js",
+			"global": true
+		},
+		"SceneController": {
+			"type": "script",
+			"path": "script/SceneController.js",
+			"global": true
+		},
+		"gameUtil": {
+			"type": "script",
+			"path": "script/utils/gameUtil.js",
+			"global": true
 		}
 	},
 	"environment": {
