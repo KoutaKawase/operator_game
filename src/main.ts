@@ -1,4 +1,4 @@
-import { GameMainParameterObject } from './parameterObject';
+import { GameMainParameterObject } from './types/parameterObject';
 import { MainSceneController } from './MainSceneController';
 
 export function main(param: GameMainParameterObject) {

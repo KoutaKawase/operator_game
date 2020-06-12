@@ -1,4 +1,4 @@
-import { GameMainParameterObject, RPGAtsumaruWindow } from './parameterObject';
+import { GameMainParameterObject, RPGAtsumaruWindow } from './types/parameterObject';
 
 declare const window: RPGAtsumaruWindow;
 

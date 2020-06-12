@@ -32,11 +32,6 @@
 			"path": "script/main.js",
 			"global": true
 		},
-		"parameterObject": {
-			"type": "script",
-			"path": "script/parameterObject.js",
-			"global": true
-		},
 		"main2": {
 			"type": "script",
 			"path": "script/main2.js",
@@ -56,6 +51,11 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
+		},
+		"parameterObject": {
+			"type": "script",
+			"path": "script/types/parameterObject.js",
+			"global": true
 		}
 	},
 	"environment": {
@@ -65,5 +65,6 @@
 				"ranking"
 			]
 		}
-	}
+	},
+	"globalScripts": []
 }
