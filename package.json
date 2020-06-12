@@ -6,6 +6,7 @@
   "scripts": {
     "build": "rimraf ./script && tsc && akashic-cli-scan asset script",
     "update": "akashic-cli-scan asset && akashic-cli-scan globalScripts",
+    "dev": "yarn build && yarn start",
     "fmt": "eslint --fix 'src/**/*.ts'",
     "lint": "run-p lint:*",
     "lint:es": "eslint 'src/**/*.ts'",

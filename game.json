@@ -36,6 +36,11 @@
 			"type": "script",
 			"path": "script/parameterObject.js",
 			"global": true
+		},
+		"main2": {
+			"type": "script",
+			"path": "script/main2.js",
+			"global": true
 		}
 	},
 	"environment": {
