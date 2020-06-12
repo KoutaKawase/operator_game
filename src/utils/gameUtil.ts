@@ -3,7 +3,7 @@ export type GameStateType = {
   isFinished: boolean;
 };
 
-export function initGameState() {
+export function initGameState(): void {
   const gameState: GameStateType = {
     score: 0,
     isFinished: false,

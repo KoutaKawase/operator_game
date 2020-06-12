@@ -1,7 +1,7 @@
 import { GameMainParameterObject } from './types/parameterObject';
 import { MainSceneController } from './MainSceneController';
 
-export function main(param: GameMainParameterObject) {
+export function main(param: GameMainParameterObject): void {
   param;
-  return MainSceneController.createMainScene(g.game);
+  g.game.pushScene(MainSceneController.createMainScene(g.game));
 }

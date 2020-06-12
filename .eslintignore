@@ -1,2 +1,3 @@
 src/_bootstrap.ts
-src/parameterObject.ts
+src/types/parameterObject.ts
+

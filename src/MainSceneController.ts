@@ -1,7 +1,6 @@
-import { SceneController } from './SceneController';
 import { initGameState } from './utils/gameUtil';
 
-export class MainSceneController extends SceneController {
+export class MainSceneController {
   static createMainScene(game: g.Game): g.Scene {
     const controller = new this();
     return controller.createScene(game);
@@ -9,16 +8,17 @@ export class MainSceneController extends SceneController {
 
   createScene(game: g.Game): g.Scene {
     initGameState();
-    return new g.Scene({ game });
+    const assetIds: string[] = [];
+    //ここらへんでアセット全部よみこむ
+    const scene = new g.Scene({ game, assetIds });
+
+    scene.loaded.add(() => {
+      this.onLoaded(scene);
+    });
+    return scene;
   }
 
-  onLoaded(scene: g.Scene): boolean {
+  private onLoaded(scene: g.Scene): void {
     scene;
-    return true;
-  }
-
-  onUpdate(scene: g.Scene): boolean {
-    scene;
-    return false;
   }
 }
