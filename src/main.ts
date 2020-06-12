@@ -15,9 +15,6 @@ export function main(param: GameMainParameterObject): void {
   // 市場コンテンツのランキングモードでは、g.game.vars.gameState.score の値をスコアとして扱います
   g.game.vars.gameState = { score: 0 };
   scene.loaded.add(() => {
-    // ここからゲーム内容を記述します
-
-    // プレイヤーを生成します
     const player = new g.Sprite({
       scene: scene,
       src: scene.assets['player'],
