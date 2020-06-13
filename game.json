@@ -100,9 +100,19 @@
 		},
 		"descBack": {
 			"type": "image",
-			"width": 500,
-			"height": 316,
+			"width": 300,
+			"height": 189,
 			"path": "image/descBack.png"
+		},
+		"description": {
+			"type": "image",
+			"width": 128,
+			"height": 88,
+			"path": "image/description.png"
+		},
+		"description_glyphs": {
+			"type": "text",
+			"path": "text/description_glyphs.json"
 		}
 	},
 	"environment": {
