@@ -118,6 +118,12 @@
 			"type": "script",
 			"path": "script/GameSubScene.js",
 			"global": true
+		},
+		"countdown": {
+			"type": "audio",
+			"path": "audio/countdown",
+			"systemId": "sound",
+			"duration": 5826
 		}
 	},
 	"environment": {
