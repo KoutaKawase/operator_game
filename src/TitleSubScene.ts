@@ -2,7 +2,7 @@ import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
 
 export class TitleSubScene extends SubScene {
-  static readonly DISPLAY_TIME = 10000;
+  static readonly DISPLAY_TIME = 50000;
 
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
@@ -25,6 +25,22 @@ export class TitleSubScene extends SubScene {
       y: g.game.height / 2,
     });
     this.append(fox);
+
+    const zzz = new g.FrameSprite({
+      scene: this,
+      src: this.assets['zzz'] as g.ImageAsset,
+      width: 100,
+      height: 100,
+      srcWidth: 100,
+      srcHeight: 100,
+      frames: [0, 1, 2],
+      x: 240,
+      y: 100,
+      interval: 1000,
+    });
+
+    this.append(zzz);
+    zzz.start();
 
     const tokimakureFont = this.assets['tokimakure'];
     const tokimakureGlyph = this.assets['tokimakure_glyphs'] as g.TextAsset;

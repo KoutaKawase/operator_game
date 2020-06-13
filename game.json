@@ -86,6 +86,12 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
+		},
+		"zzz": {
+			"type": "image",
+			"width": 327,
+			"height": 100,
+			"path": "image/zzz.png"
 		}
 	},
 	"environment": {
