@@ -10,9 +10,27 @@
 			"systemId": "sound",
 			"duration": 250
 		},
-		"font_glyphs": {
+		"titleImage": {
+			"type": "image",
+			"width": 166,
+			"height": 160,
+			"path": "image/titleImage.png"
+		},
+		"sampleTitleImage": {
+			"type": "image",
+			"width": 555,
+			"height": 534,
+			"path": "image/sampleTitleImage.png"
+		},
+		"tokimakure": {
+			"type": "image",
+			"width": 128,
+			"height": 136,
+			"path": "image/tokimakure.png"
+		},
+		"tokimakure_glyphs": {
 			"type": "text",
-			"path": "text/font_glyphs.json"
+			"path": "text/tokimakure_glyphs.json"
 		},
 		"AssetInfos": {
 			"type": "script",
@@ -68,24 +86,6 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
-		},
-		"titleImage": {
-			"type": "image",
-			"width": 166,
-			"height": 160,
-			"path": "image/titleImage.png"
-		},
-		"sampleTitleImage": {
-			"type": "image",
-			"width": 555,
-			"height": 534,
-			"path": "image/sampleTitleImage.png"
-		},
-		"titleImage2": {
-			"type": "image",
-			"width": 222,
-			"height": 213,
-			"path": "image/titleImage2.png"
 		}
 	},
 	"environment": {
