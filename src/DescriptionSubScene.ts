@@ -7,7 +7,21 @@ export class DescriptionSubScene extends SubScene {
   }
 
   protected loadedHandler(): void {
-    console.log('Hello from description!');
+    const background = new g.FilledRect({
+      scene: this,
+      width: g.game.width,
+      height: g.game.height,
+      cssColor: '#000000',
+      opacity: 0.8,
+    });
+    this.append(background);
+
+    const descBack = new g.Sprite({
+      scene: this,
+      src: this.assets['descBack'],
+      y: 50,
+    });
+    this.append(descBack);
   }
 
   protected updateHandler(): void {

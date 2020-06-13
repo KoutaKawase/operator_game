@@ -2,7 +2,7 @@ import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
 
 export class TitleSubScene extends SubScene {
-  static readonly DISPLAY_TIME = 10000;
+  static readonly DISPLAY_TIME = 1000;
 
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
