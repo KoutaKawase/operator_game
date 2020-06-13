@@ -4,18 +4,6 @@
 	"fps": 30,
 	"main": "./script/_bootstrap.js",
 	"assets": {
-		"player": {
-			"type": "image",
-			"width": 32,
-			"height": 32,
-			"path": "image/player.png"
-		},
-		"shot": {
-			"type": "image",
-			"width": 16,
-			"height": 16,
-			"path": "image/shot.png"
-		},
 		"se": {
 			"type": "audio",
 			"path": "audio/se",
@@ -42,11 +30,6 @@
 			"path": "script/MainSceneController.js",
 			"global": true
 		},
-		"SceneController": {
-			"type": "script",
-			"path": "script/SceneController.js",
-			"global": true
-		},
 		"gameUtil": {
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
@@ -55,6 +38,36 @@
 		"parameterObject": {
 			"type": "script",
 			"path": "script/types/parameterObject.js",
+			"global": true
+		},
+		"font": {
+			"type": "image",
+			"width": 1024,
+			"height": 616,
+			"path": "image/font.png"
+		},
+		"font_glyphs": {
+			"type": "text",
+			"path": "text/font_glyphs.json"
+		},
+		"AssetInfos": {
+			"type": "script",
+			"path": "script/AssetInfos.js",
+			"global": true
+		},
+		"SubScene": {
+			"type": "script",
+			"path": "script/SubScene.js",
+			"global": true
+		},
+		"TitleSubScene": {
+			"type": "script",
+			"path": "script/TitleSubScene.js",
+			"global": true
+		},
+		"SceneInfo": {
+			"type": "script",
+			"path": "script/types/SceneInfo.js",
 			"global": true
 		}
 	},

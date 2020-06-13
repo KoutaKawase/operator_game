@@ -1,4 +1,6 @@
 import { initGameState } from './utils/gameUtil';
+import { titleAssets } from './AssetInfos';
+import { TitleSubScene } from './TitleSubScene';
 
 export class MainSceneController {
   static createMainScene(game: g.Game): g.Scene {
@@ -8,9 +10,7 @@ export class MainSceneController {
 
   createScene(game: g.Game): g.Scene {
     initGameState();
-    const assetIds: string[] = [];
-    //ここらへんでアセット全部よみこむ
-    const scene = new g.Scene({ game, assetIds });
+    const scene = new g.Scene({ game });
 
     scene.loaded.add(() => {
       this.onLoaded(scene);
@@ -19,6 +19,8 @@ export class MainSceneController {
   }
 
   private onLoaded(scene: g.Scene): void {
-    scene;
+    const titleSubScene = new TitleSubScene({ game: g.game, assetIds: titleAssets });
+    console.log(titleSubScene);
+    console.log(scene);
   }
 }
