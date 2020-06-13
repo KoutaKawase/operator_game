@@ -1,6 +1,7 @@
 import { initGameState } from './utils/gameUtil';
-import { titleAssets } from './AssetInfos';
+import { titleAssets, descriptionAsset } from './AssetInfos';
 import { TitleSubScene } from './TitleSubScene';
+import { DescriptionSubScene } from './DescriptionSubScene';
 
 export class MainSceneController {
   static createMainScene(game: g.Game): g.Scene {
@@ -20,7 +21,11 @@ export class MainSceneController {
 
   private onLoaded(scene: g.Scene): void {
     const titleSubScene = new TitleSubScene({ game: g.game, assetIds: titleAssets });
+    const descriptionScene = new DescriptionSubScene({ game: g.game, assetIds: descriptionAsset });
     console.log(titleSubScene);
     console.log(scene);
+    titleSubScene.init(descriptionScene);
+
+    g.game.pushScene(titleSubScene);
   }
 }

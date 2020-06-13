@@ -69,6 +69,11 @@
 			"type": "script",
 			"path": "script/types/SceneInfo.js",
 			"global": true
+		},
+		"DescriptionSubScene": {
+			"type": "script",
+			"path": "script/DescriptionSubScene.js",
+			"global": true
 		}
 	},
 	"environment": {
