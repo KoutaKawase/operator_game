@@ -49,6 +49,10 @@ export class DescriptionSubScene extends SubScene {
     });
 
     this.append(desc);
+
+    this.setTimeout(() => {
+      this.goNext();
+    }, 5000);
   }
 
   protected updateHandler(): void {

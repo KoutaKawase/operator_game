@@ -113,6 +113,11 @@
 		"description_glyphs": {
 			"type": "text",
 			"path": "text/description_glyphs.json"
+		},
+		"GameSubScene": {
+			"type": "script",
+			"path": "script/GameSubScene.js",
+			"global": true
 		}
 	},
 	"environment": {
