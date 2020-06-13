@@ -22,7 +22,6 @@ export class MainSceneController {
   private onLoaded(scene: g.Scene): void {
     const titleSubScene = new TitleSubScene({ game: g.game, assetIds: titleAssets });
     const descriptionScene = new DescriptionSubScene({ game: g.game, assetIds: descriptionAsset });
-    console.log(titleSubScene);
     console.log(scene);
     titleSubScene.init(descriptionScene);
 

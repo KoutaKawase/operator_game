@@ -1,6 +1,6 @@
 import type { SceneInfo } from './types/SceneInfo';
 
-export class SubScene extends g.Scene {
+export abstract class SubScene extends g.Scene {
   private requestedNestSubScene = new g.Trigger<void>();
 
   constructor(sceneInfo: SceneInfo) {
@@ -10,10 +10,7 @@ export class SubScene extends g.Scene {
   init(nextSubScene?: SubScene): void {
     this.loaded.add(() => {
       this.setNextSubScene(nextSubScene);
-
-      this.setTimeout(() => {
-        this.goNext();
-      }, 5000);
+      this.loadedHandler();
     });
   }
 
@@ -27,4 +24,7 @@ export class SubScene extends g.Scene {
       console.log(nextSubScene);
     });
   }
+
+  protected abstract loadedHandler(): void;
+  protected abstract updateHandler(): void;
 }

@@ -5,4 +5,12 @@ export class DescriptionSubScene extends SubScene {
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
   }
+
+  protected loadedHandler(): void {
+    //mock
+  }
+
+  protected updateHandler(): void {
+    //mock
+  }
 }
