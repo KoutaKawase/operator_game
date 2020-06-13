@@ -24,6 +24,7 @@ export class MainSceneController {
     const descriptionScene = new DescriptionSubScene({ game: g.game, assetIds: descriptionAsset });
     console.log(scene);
     titleSubScene.init(descriptionScene);
+    descriptionScene.init();
 
     g.game.pushScene(titleSubScene);
   }

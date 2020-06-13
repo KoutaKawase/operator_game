@@ -20,8 +20,11 @@ export abstract class SubScene extends g.Scene {
 
   private setNextSubScene(nextSubScene?: SubScene) {
     this.requestedNestSubScene.add(() => {
-      console.log('Trigger FIRED!!');
-      console.log(nextSubScene);
+      this.destroy();
+      if (!nextSubScene) {
+        return;
+      }
+      g.game.pushScene(nextSubScene);
     });
   }
 

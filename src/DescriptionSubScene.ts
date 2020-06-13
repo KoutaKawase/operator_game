@@ -7,7 +7,7 @@ export class DescriptionSubScene extends SubScene {
   }
 
   protected loadedHandler(): void {
-    //mock
+    console.log('Hello from description!');
   }
 
   protected updateHandler(): void {
