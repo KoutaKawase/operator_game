@@ -2,13 +2,15 @@ import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
 
 export class TitleSubScene extends SubScene {
-  static readonly DISPLAY_TIME = 50000;
+  static readonly DISPLAY_TIME = 10000;
 
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
   }
 
   protected loadedHandler(): void {
+    (this.assets['titleBgm'] as g.AudioAsset).play();
+
     const background = new g.FilledRect({
       scene: this,
       width: g.game.width,
@@ -79,6 +81,7 @@ export class TitleSubScene extends SubScene {
     this.append(titleBottom);
 
     this.setTimeout(() => {
+      (this.assets['titleBgm'] as g.AudioAsset).stop();
       this.goNext();
     }, TitleSubScene.DISPLAY_TIME);
   }

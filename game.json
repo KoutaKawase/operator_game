@@ -4,12 +4,6 @@
 	"fps": 30,
 	"main": "./script/_bootstrap.js",
 	"assets": {
-		"se": {
-			"type": "audio",
-			"path": "audio/se",
-			"systemId": "sound",
-			"duration": 250
-		},
 		"titleImage": {
 			"type": "image",
 			"width": 166,
@@ -92,6 +86,12 @@
 			"width": 327,
 			"height": 100,
 			"path": "image/zzz.png"
+		},
+		"titleBgm": {
+			"type": "audio",
+			"path": "audio/titleBgm",
+			"systemId": "sound",
+			"duration": 14448
 		}
 	},
 	"environment": {
