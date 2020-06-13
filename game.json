@@ -10,6 +10,35 @@
 			"systemId": "sound",
 			"duration": 250
 		},
+		"font_glyphs": {
+			"type": "text",
+			"path": "text/font_glyphs.json"
+		},
+		"AssetInfos": {
+			"type": "script",
+			"path": "script/AssetInfos.js",
+			"global": true
+		},
+		"DescriptionSubScene": {
+			"type": "script",
+			"path": "script/DescriptionSubScene.js",
+			"global": true
+		},
+		"MainSceneController": {
+			"type": "script",
+			"path": "script/MainSceneController.js",
+			"global": true
+		},
+		"SubScene": {
+			"type": "script",
+			"path": "script/SubScene.js",
+			"global": true
+		},
+		"TitleSubScene": {
+			"type": "script",
+			"path": "script/TitleSubScene.js",
+			"global": true
+		},
 		"_bootstrap": {
 			"type": "script",
 			"path": "script/_bootstrap.js",
@@ -25,14 +54,9 @@
 			"path": "script/main2.js",
 			"global": true
 		},
-		"MainSceneController": {
+		"SceneInfo": {
 			"type": "script",
-			"path": "script/MainSceneController.js",
-			"global": true
-		},
-		"gameUtil": {
-			"type": "script",
-			"path": "script/utils/gameUtil.js",
+			"path": "script/types/SceneInfo.js",
 			"global": true
 		},
 		"parameterObject": {
@@ -40,40 +64,28 @@
 			"path": "script/types/parameterObject.js",
 			"global": true
 		},
-		"font": {
+		"gameUtil": {
+			"type": "script",
+			"path": "script/utils/gameUtil.js",
+			"global": true
+		},
+		"titleImage": {
 			"type": "image",
-			"width": 1024,
-			"height": 616,
-			"path": "image/font.png"
+			"width": 166,
+			"height": 160,
+			"path": "image/titleImage.png"
 		},
-		"font_glyphs": {
-			"type": "text",
-			"path": "text/font_glyphs.json"
+		"sampleTitleImage": {
+			"type": "image",
+			"width": 555,
+			"height": 534,
+			"path": "image/sampleTitleImage.png"
 		},
-		"AssetInfos": {
-			"type": "script",
-			"path": "script/AssetInfos.js",
-			"global": true
-		},
-		"SubScene": {
-			"type": "script",
-			"path": "script/SubScene.js",
-			"global": true
-		},
-		"TitleSubScene": {
-			"type": "script",
-			"path": "script/TitleSubScene.js",
-			"global": true
-		},
-		"SceneInfo": {
-			"type": "script",
-			"path": "script/types/SceneInfo.js",
-			"global": true
-		},
-		"DescriptionSubScene": {
-			"type": "script",
-			"path": "script/DescriptionSubScene.js",
-			"global": true
+		"titleImage2": {
+			"type": "image",
+			"width": 222,
+			"height": 213,
+			"path": "image/titleImage2.png"
 		}
 	},
 	"environment": {

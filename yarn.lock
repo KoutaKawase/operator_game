@@ -57,10 +57,10 @@
     musicmetadata "2.0.5"
     thumbcoil "~1.2.0"
 
-"@akashic/akashic-engine@~2.4.11":
-  version "2.4.15"
-  resolved "https://registry.yarnpkg.com/@akashic/akashic-engine/-/akashic-engine-2.4.15.tgz#67dd243169df142ac3456339068ae9d2112cba20"
-  integrity sha512-4ydWOkuqEiDXMLc+VdoNrjFu3ecp6r7zs3cx6+PpPLmsGNzQ/xN2TPogUB7ncDWaGA8l9tnFdIRkD9WXropB/w==
+"@akashic/akashic-engine@^2.6.3":
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/@akashic/akashic-engine/-/akashic-engine-2.6.3.tgz#b0218f150ead74896d7d9abd648bf2c95ffb9842"
+  integrity sha512-Ns9tg5fEre82crIlRTVGQYhZpF6DYqaeAAbK/Z+3Eu4xZEXzvItSEzxTgUANhfCvDR+kDuwl4DSbPMwzC9H/Hw==
 
 "@akashic/akashic-sandbox@~0.13.55":
   version "0.13.69"
