@@ -91,7 +91,7 @@
 			"type": "audio",
 			"path": "audio/titleBgm",
 			"systemId": "sound",
-			"duration": 14448
+			"duration": 11520
 		},
 		"entityUtil": {
 			"type": "script",
