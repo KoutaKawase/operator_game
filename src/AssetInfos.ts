@@ -11,4 +11,8 @@ export const gameAsset = [
   'score_num_glyphs',
   'answer',
   'answer_glyphs',
+  'plus',
+  'minus',
+  'cross',
+  'div',
 ];

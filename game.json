@@ -185,6 +185,35 @@
 			"type": "script",
 			"path": "script/Answer.js",
 			"global": true
+		},
+		"cross": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/cross.png"
+		},
+		"div": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/div.png"
+		},
+		"minus": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/minus.png"
+		},
+		"plus": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/plus.png"
+		},
+		"Choice": {
+			"type": "script",
+			"path": "script/Choice.js",
+			"global": true
 		}
 	},
 	"environment": {
