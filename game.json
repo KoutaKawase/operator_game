@@ -1,6 +1,6 @@
 {
-	"width": 320,
-	"height": 320,
+	"width": 640,
+	"height": 360,
 	"fps": 30,
 	"main": "./script/_bootstrap.js",
 	"assets": {
@@ -26,6 +26,76 @@
 			"type": "text",
 			"path": "text/tokimakure_glyphs.json"
 		},
+		"zzz": {
+			"type": "image",
+			"width": 327,
+			"height": 100,
+			"path": "image/zzz.png"
+		},
+		"titleBgm": {
+			"type": "audio",
+			"path": "audio/titleBgm",
+			"systemId": "sound",
+			"duration": 11520
+		},
+		"descBack": {
+			"type": "image",
+			"width": 300,
+			"height": 189,
+			"path": "image/descBack.png"
+		},
+		"description": {
+			"type": "image",
+			"width": 128,
+			"height": 88,
+			"path": "image/description.png"
+		},
+		"description_glyphs": {
+			"type": "text",
+			"path": "text/description_glyphs.json"
+		},
+		"countdown": {
+			"type": "audio",
+			"path": "audio/countdown",
+			"systemId": "sound",
+			"duration": 5826
+		},
+		"gameUI": {
+			"type": "image",
+			"width": 640,
+			"height": 360,
+			"path": "image/gameUI.png"
+		},
+		"time_num": {
+			"type": "image",
+			"width": 128,
+			"height": 60,
+			"path": "image/time_num.png"
+		},
+		"time_num_glyphs": {
+			"type": "text",
+			"path": "text/time_num_glyphs.json"
+		},
+		"score": {
+			"type": "image",
+			"width": 64,
+			"height": 48,
+			"path": "image/score.png"
+		},
+		"score_glyphs": {
+			"type": "text",
+			"path": "text/score_glyphs.json"
+		},
+		"score_num": {
+			"type": "image",
+			"width": 128,
+			"height": 48,
+			"path": "image/score_num.png"
+		},
+		"score_num_glyphs": {
+			"type": "text",
+			"path": "text/score_num_glyphs.json"
+		},
 		"AssetInfos": {
 			"type": "script",
 			"path": "script/AssetInfos.js",
@@ -36,14 +106,29 @@
 			"path": "script/DescriptionSubScene.js",
 			"global": true
 		},
+		"GameSubScene": {
+			"type": "script",
+			"path": "script/GameSubScene.js",
+			"global": true
+		},
 		"MainSceneController": {
 			"type": "script",
 			"path": "script/MainSceneController.js",
 			"global": true
 		},
+		"Score": {
+			"type": "script",
+			"path": "script/Score.js",
+			"global": true
+		},
 		"SubScene": {
 			"type": "script",
 			"path": "script/SubScene.js",
+			"global": true
+		},
+		"Time": {
+			"type": "script",
+			"path": "script/Time.js",
 			"global": true
 		},
 		"TitleSubScene": {
@@ -76,54 +161,59 @@
 			"path": "script/types/parameterObject.js",
 			"global": true
 		},
-		"gameUtil": {
-			"type": "script",
-			"path": "script/utils/gameUtil.js",
-			"global": true
-		},
-		"zzz": {
-			"type": "image",
-			"width": 327,
-			"height": 100,
-			"path": "image/zzz.png"
-		},
-		"titleBgm": {
-			"type": "audio",
-			"path": "audio/titleBgm",
-			"systemId": "sound",
-			"duration": 11520
-		},
 		"entityUtil": {
 			"type": "script",
 			"path": "script/utils/entityUtil.js",
 			"global": true
 		},
-		"descBack": {
-			"type": "image",
-			"width": 300,
-			"height": 189,
-			"path": "image/descBack.png"
-		},
-		"description": {
-			"type": "image",
-			"width": 128,
-			"height": 88,
-			"path": "image/description.png"
-		},
-		"description_glyphs": {
-			"type": "text",
-			"path": "text/description_glyphs.json"
-		},
-		"GameSubScene": {
+		"gameUtil": {
 			"type": "script",
-			"path": "script/GameSubScene.js",
+			"path": "script/utils/gameUtil.js",
 			"global": true
 		},
-		"countdown": {
-			"type": "audio",
-			"path": "audio/countdown",
-			"systemId": "sound",
-			"duration": 5826
+		"answer": {
+			"type": "image",
+			"width": 128,
+			"height": 72,
+			"path": "image/answer.png"
+		},
+		"answer_glyphs": {
+			"type": "text",
+			"path": "text/answer_glyphs.json"
+		},
+		"Answer": {
+			"type": "script",
+			"path": "script/Answer.js",
+			"global": true
+		},
+		"cross": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/cross.png"
+		},
+		"div": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/div.png"
+		},
+		"minus": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/minus.png"
+		},
+		"plus": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/plus.png"
+		},
+		"Choice": {
+			"type": "script",
+			"path": "script/Choice.js",
+			"global": true
 		}
 	},
 	"environment": {
