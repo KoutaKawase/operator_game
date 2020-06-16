@@ -7,7 +7,7 @@ export class Time {
     this.timeLabel = this.createTimeLabel();
   }
 
-  public show(): void {
+  show(): void {
     this.scene.append(this.timeLabel);
   }
 

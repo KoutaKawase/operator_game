@@ -145,6 +145,21 @@
 			"type": "script",
 			"path": "script/Time.js",
 			"global": true
+		},
+		"score": {
+			"type": "image",
+			"width": 64,
+			"height": 48,
+			"path": "image/score.png"
+		},
+		"score_glyphs": {
+			"type": "text",
+			"path": "text/score_glyphs.json"
+		},
+		"Score": {
+			"type": "script",
+			"path": "script/Score.js",
+			"global": true
 		}
 	},
 	"environment": {

@@ -2,10 +2,12 @@ import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
 import { createGameUIBase } from './utils/entityUtil';
 import { Time } from './Time';
+import { Score } from './Score';
 
 export class GameSubScene extends SubScene {
   private isInGame: boolean;
   private gameTime: Time | null;
+  private score: Score | null;
   //カウントダウン音声のおおよその長さ この長さ分待ってからゲームを開始
   static readonly COUNTDOWN_TIME = 4500;
 
@@ -13,6 +15,7 @@ export class GameSubScene extends SubScene {
     super(sceneInfo);
     this.isInGame = false;
     this.gameTime = null;
+    this.score = null;
   }
 
   private runReadySound(): Promise<void> {
@@ -32,6 +35,8 @@ export class GameSubScene extends SubScene {
     this.append(gameUIBase);
     this.gameTime = new Time(this);
     this.gameTime.show();
+    this.score = new Score(this);
+    this.score.show();
 
     await this.runReadySound();
     console.log(this.isInGame);
