@@ -26,6 +26,56 @@
 			"type": "text",
 			"path": "text/tokimakure_glyphs.json"
 		},
+		"zzz": {
+			"type": "image",
+			"width": 327,
+			"height": 100,
+			"path": "image/zzz.png"
+		},
+		"titleBgm": {
+			"type": "audio",
+			"path": "audio/titleBgm",
+			"systemId": "sound",
+			"duration": 11520
+		},
+		"descBack": {
+			"type": "image",
+			"width": 300,
+			"height": 189,
+			"path": "image/descBack.png"
+		},
+		"description": {
+			"type": "image",
+			"width": 128,
+			"height": 88,
+			"path": "image/description.png"
+		},
+		"description_glyphs": {
+			"type": "text",
+			"path": "text/description_glyphs.json"
+		},
+		"countdown": {
+			"type": "audio",
+			"path": "audio/countdown",
+			"systemId": "sound",
+			"duration": 5826
+		},
+		"gameUI": {
+			"type": "image",
+			"width": 640,
+			"height": 360,
+			"path": "image/gameUI.png"
+		},
+		"time_num": {
+			"type": "image",
+			"width": 128,
+			"height": 60,
+			"path": "image/time_num.png"
+		},
+		"time_num_glyphs": {
+			"type": "text",
+			"path": "text/time_num_glyphs.json"
+		},
 		"AssetInfos": {
 			"type": "script",
 			"path": "script/AssetInfos.js",
@@ -34,6 +84,11 @@
 		"DescriptionSubScene": {
 			"type": "script",
 			"path": "script/DescriptionSubScene.js",
+			"global": true
+		},
+		"GameSubScene": {
+			"type": "script",
+			"path": "script/GameSubScene.js",
 			"global": true
 		},
 		"MainSceneController": {
@@ -76,54 +131,20 @@
 			"path": "script/types/parameterObject.js",
 			"global": true
 		},
-		"gameUtil": {
-			"type": "script",
-			"path": "script/utils/gameUtil.js",
-			"global": true
-		},
-		"zzz": {
-			"type": "image",
-			"width": 327,
-			"height": 100,
-			"path": "image/zzz.png"
-		},
-		"titleBgm": {
-			"type": "audio",
-			"path": "audio/titleBgm",
-			"systemId": "sound",
-			"duration": 11520
-		},
 		"entityUtil": {
 			"type": "script",
 			"path": "script/utils/entityUtil.js",
 			"global": true
 		},
-		"descBack": {
-			"type": "image",
-			"width": 300,
-			"height": 189,
-			"path": "image/descBack.png"
-		},
-		"description": {
-			"type": "image",
-			"width": 128,
-			"height": 88,
-			"path": "image/description.png"
-		},
-		"description_glyphs": {
-			"type": "text",
-			"path": "text/description_glyphs.json"
-		},
-		"GameSubScene": {
+		"gameUtil": {
 			"type": "script",
-			"path": "script/GameSubScene.js",
+			"path": "script/utils/gameUtil.js",
 			"global": true
 		},
-		"countdown": {
-			"type": "audio",
-			"path": "audio/countdown",
-			"systemId": "sound",
-			"duration": 5826
+		"Time": {
+			"type": "script",
+			"path": "script/Time.js",
+			"global": true
 		}
 	},
 	"environment": {

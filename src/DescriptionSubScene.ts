@@ -52,7 +52,7 @@ export class DescriptionSubScene extends SubScene {
 
     this.setTimeout(() => {
       this.goNext();
-    }, 5000);
+    }, 1000);
   }
 
   protected updateHandler(): void {
