@@ -1,31 +1,61 @@
 export class Score {
-  private scoreLabel: g.Label;
+  private scoreLabel: { left: g.Label; right: g.Label };
   private scene: g.Scene;
 
   constructor(scene: g.Scene) {
     this.scene = scene;
-    this.scoreLabel = this.createScoreLabel();
+    this.scoreLabel = {
+      left: this.createScoreLeftLabel(),
+      right: this.createScoreRightLabel(),
+    };
   }
 
   show(): void {
-    this.scene.append(this.scoreLabel);
+    this.scene.append(this.scoreLabel.left);
+    this.scene.append(this.scoreLabel.right);
   }
 
-  private createScoreLabel(): g.Label {
+  private createScoreRightLabel(): g.Label {
     const scene = this.scene;
-    const scoreFont = scene.assets['score'];
-    const scoreGlyph = scene.assets['score_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(scoreGlyph.data);
+    const rightFont = scene.assets['score_num'];
+    const rightGlyph = scene.assets['score_num_glyphs'] as g.TextAsset;
+    const glyphData = JSON.parse(rightGlyph.data);
 
     const font = new g.BitmapFont({
-      src: scoreFont,
+      src: rightFont,
       map: glyphData.map,
       defaultGlyphWidth: glyphData.width,
       defaultGlyphHeight: glyphData.height,
       missingGlyph: glyphData.missingGlyph,
     });
 
-    const scoreLabel = new g.Label({
+    const rightLabel = new g.Label({
+      scene,
+      text: '0',
+      font,
+      x: 600,
+      y: 70,
+      fontSize: font.size,
+    });
+
+    return rightLabel;
+  }
+
+  private createScoreLeftLabel(): g.Label {
+    const scene = this.scene;
+    const leftFont = scene.assets['score'];
+    const leftGlyph = scene.assets['score_glyphs'] as g.TextAsset;
+    const glyphData = JSON.parse(leftGlyph.data);
+
+    const font = new g.BitmapFont({
+      src: leftFont,
+      map: glyphData.map,
+      defaultGlyphWidth: glyphData.width,
+      defaultGlyphHeight: glyphData.height,
+      missingGlyph: glyphData.missingGlyph,
+    });
+
+    const leftLabel = new g.Label({
       scene,
       text: 'SCORE:',
       font,
@@ -34,6 +64,6 @@ export class Score {
       fontSize: font.size,
     });
 
-    return scoreLabel;
+    return leftLabel;
   }
 }

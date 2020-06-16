@@ -76,6 +76,26 @@
 			"type": "text",
 			"path": "text/time_num_glyphs.json"
 		},
+		"score": {
+			"type": "image",
+			"width": 64,
+			"height": 48,
+			"path": "image/score.png"
+		},
+		"score_glyphs": {
+			"type": "text",
+			"path": "text/score_glyphs.json"
+		},
+		"score_num": {
+			"type": "image",
+			"width": 128,
+			"height": 48,
+			"path": "image/score_num.png"
+		},
+		"score_num_glyphs": {
+			"type": "text",
+			"path": "text/score_num_glyphs.json"
+		},
 		"AssetInfos": {
 			"type": "script",
 			"path": "script/AssetInfos.js",
@@ -96,9 +116,19 @@
 			"path": "script/MainSceneController.js",
 			"global": true
 		},
+		"Score": {
+			"type": "script",
+			"path": "script/Score.js",
+			"global": true
+		},
 		"SubScene": {
 			"type": "script",
 			"path": "script/SubScene.js",
+			"global": true
+		},
+		"Time": {
+			"type": "script",
+			"path": "script/Time.js",
 			"global": true
 		},
 		"TitleSubScene": {
@@ -139,26 +169,6 @@
 		"gameUtil": {
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
-			"global": true
-		},
-		"Time": {
-			"type": "script",
-			"path": "script/Time.js",
-			"global": true
-		},
-		"score": {
-			"type": "image",
-			"width": 64,
-			"height": 48,
-			"path": "image/score.png"
-		},
-		"score_glyphs": {
-			"type": "text",
-			"path": "text/score_glyphs.json"
-		},
-		"Score": {
-			"type": "script",
-			"path": "script/Score.js",
 			"global": true
 		}
 	},

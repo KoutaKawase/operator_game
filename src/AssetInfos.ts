@@ -7,4 +7,6 @@ export const gameAsset = [
   'time_num_glyphs',
   'score',
   'score_glyphs',
+  'score_num',
+  'score_num_glyphs',
 ];
