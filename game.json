@@ -170,6 +170,21 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
+		},
+		"answer": {
+			"type": "image",
+			"width": 128,
+			"height": 72,
+			"path": "image/answer.png"
+		},
+		"answer_glyphs": {
+			"type": "text",
+			"path": "text/answer_glyphs.json"
+		},
+		"Answer": {
+			"type": "script",
+			"path": "script/Answer.js",
+			"global": true
 		}
 	},
 	"environment": {
