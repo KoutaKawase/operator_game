@@ -1,6 +1,6 @@
 {
-	"width": 320,
-	"height": 320,
+	"width": 640,
+	"height": 360,
 	"fps": 30,
 	"main": "./script/_bootstrap.js",
 	"assets": {

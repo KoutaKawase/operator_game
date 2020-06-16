@@ -21,7 +21,7 @@ export class DescriptionSubScene extends SubScene {
       scene: this,
       src: this.assets['descBack'],
       y: 50,
-      x: 13,
+      x: 170,
     });
     this.append(descBack);
 

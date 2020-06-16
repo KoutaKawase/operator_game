@@ -2,7 +2,7 @@ import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
 
 export class TitleSubScene extends SubScene {
-  static readonly DISPLAY_TIME = 5000;
+  static readonly DISPLAY_TIME = 8000;
 
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
@@ -23,8 +23,8 @@ export class TitleSubScene extends SubScene {
     const fox = new g.Sprite({
       scene: this,
       src: this.assets['titleImage'],
-      x: g.game.width / 2,
-      y: g.game.height / 2,
+      x: g.game.width - 150,
+      y: g.game.height - 150,
     });
     this.append(fox);
 
@@ -36,8 +36,8 @@ export class TitleSubScene extends SubScene {
       srcWidth: 100,
       srcHeight: 100,
       frames: [0, 1, 2],
-      x: 240,
-      y: 100,
+      x: g.game.width - 83,
+      y: g.game.height - 230,
       interval: 1000,
     });
 
