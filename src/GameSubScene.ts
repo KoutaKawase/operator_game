@@ -5,6 +5,7 @@ import { Time } from './Time';
 import { Score } from './Score';
 import { Answer } from './Answer';
 import { Choice } from './Choice';
+import { Problem } from './Problem';
 
 export class GameSubScene extends SubScene {
   private isInGame: boolean;
@@ -12,6 +13,7 @@ export class GameSubScene extends SubScene {
   private score: Score | null;
   private answer: Answer | null;
   private choice: Choice | null;
+  private problem: Problem | null;
   //カウントダウン音声のおおよその長さ この長さ分待ってからゲームを開始
   static readonly COUNTDOWN_TIME = 4500;
 
@@ -22,6 +24,7 @@ export class GameSubScene extends SubScene {
     this.score = null;
     this.answer = null;
     this.choice = null;
+    this.problem = null;
   }
 
   private runReadySound(): Promise<void> {
@@ -39,6 +42,8 @@ export class GameSubScene extends SubScene {
   protected async loadedHandler(): Promise<void> {
     const gameUIBase = createGameUIBase(this);
     this.append(gameUIBase);
+    this.problem = new Problem();
+    console.log(this.problem.pickProblemRandomly());
     this.gameTime = new Time(this);
     this.gameTime.show();
     this.score = new Score(this);
