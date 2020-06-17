@@ -56,6 +56,7 @@ export class GameSubScene extends SubScene {
     this.update.add(this.updateHandler);
 
     await this.runReadySound();
+    this.problem.remove();
     console.log(this.isInGame);
   }
 

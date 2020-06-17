@@ -68,6 +68,10 @@ export class Problem {
     this.scene.append(this.problemLabel);
   }
 
+  remove(): void {
+    this.scene.remove(this.problemLabel);
+  }
+
   pickProblemRandomly(): Combination {
     const operator = getRandomOperator();
     const index = getRandomIndex(this.validCombinations[operator].length);
