@@ -22,18 +22,22 @@ export class MainSceneController {
   }
 
   private onLoaded(scene: g.Scene): void {
+    scene.update.add(this.onUpdate);
     const titleSubScene = new TitleSubScene({ game: g.game, assetIds: titleAssets });
     const descriptionSubScene = new DescriptionSubScene({
       game: g.game,
       assetIds: descriptionAsset,
     });
     const gameSubScene = new GameSubScene({ game: g.game, assetIds: gameAsset });
-    console.log(scene);
 
     titleSubScene.init(descriptionSubScene);
     descriptionSubScene.init(gameSubScene);
     gameSubScene.init();
 
     g.game.pushScene(titleSubScene);
+  }
+
+  private onUpdate(): void {
+    g.game.vars.gameState.totalTimeLimit -= 1 / g.game.fps;
   }
 }

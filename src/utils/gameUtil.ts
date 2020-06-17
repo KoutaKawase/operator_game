@@ -22,5 +22,4 @@ export function initGameState(param: Param): void {
   };
 
   g.game.vars.gameState = gameState;
-  console.log(g.game.vars.gameState.totalTimeLimit);
 }

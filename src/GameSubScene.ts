@@ -53,11 +53,14 @@ export class GameSubScene extends SubScene {
     this.choice = new Choice(this);
     this.choice.show();
 
+    this.update.add(this.updateHandler);
+
     await this.runReadySound();
+    console.log(g.game.vars.gameState.totalTimeLimit);
     console.log(this.isInGame);
   }
 
   protected updateHandler(): void {
-    //mock
+    super.commonUpdateHandler();
   }
 }

@@ -8,6 +8,7 @@ export class DescriptionSubScene extends SubScene {
   }
 
   protected loadedHandler(): void {
+    this.update.add(this.updateHandler);
     const background = new g.FilledRect({
       scene: this,
       width: g.game.width,
@@ -56,6 +57,6 @@ export class DescriptionSubScene extends SubScene {
   }
 
   protected updateHandler(): void {
-    //mock
+    super.commonUpdateHandler();
   }
 }
