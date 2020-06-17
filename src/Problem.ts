@@ -91,6 +91,3 @@ export class Problem {
     return list;
   }
 }
-
-const problem = new Problem();
-problem;
