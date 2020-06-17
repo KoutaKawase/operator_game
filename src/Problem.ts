@@ -43,13 +43,6 @@ type CombinationList = {
   '/': Combination[];
 };
 
-type ProblemLabel = {
-  left: g.Label;
-  right: g.Label;
-  equal: g.Label;
-  calculated: g.Label;
-};
-
 type TextProblem = {
   leftText: string;
   rightText: string;
@@ -62,7 +55,7 @@ export class Problem {
   private readonly validCombinations: CombinationList;
   private currentProblem: Combination;
   private scene: g.Scene;
-  private problemLabel: ProblemLabel;
+  private problemLabel: g.E;
 
   constructor(scene: g.Scene) {
     this.validCombinations = this.createValidCombinations();
@@ -72,10 +65,7 @@ export class Problem {
   }
 
   show(): void {
-    this.scene.append(this.problemLabel.left);
-    this.scene.append(this.problemLabel.right);
-    this.scene.append(this.problemLabel.equal);
-    this.scene.append(this.problemLabel.calculated);
+    this.scene.append(this.problemLabel);
   }
 
   pickProblemRandomly(): Combination {
@@ -84,8 +74,9 @@ export class Problem {
     return this.validCombinations[operator][index];
   }
 
-  private createProblemLabel(): ProblemLabel {
+  private createProblemLabel(): g.E {
     const scene = this.scene;
+    const group = new g.E({ scene, x: 30, y: 110 });
     const { leftText, rightText, equalText, calculatedText } = this.stringifyProblem();
     const {
       leftX,
@@ -99,11 +90,15 @@ export class Problem {
     } = getProblemPoint();
     const font: g.BitmapFont = getProblemFont(scene);
     const left = getProblemLabel(scene, font, leftText, leftX, leftY);
+    group.append(left);
     const right = getProblemLabel(scene, font, rightText, rightX, rightY);
+    group.append(right);
     const equal = getProblemLabel(scene, font, equalText, equalX, equalY);
+    group.append(equal);
     const calculated = getProblemLabel(scene, font, calculatedText, calculatedX, calculatedY);
+    group.append(calculated);
 
-    return { left, right, equal, calculated };
+    return group;
   }
 
   private stringifyProblem(): TextProblem {

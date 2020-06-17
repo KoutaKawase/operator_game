@@ -76,14 +76,14 @@ export function getProblemLabel(
 }
 
 export function getProblemPoint(): ProblemPoint {
-  const BASE_Y = 110;
-  const leftX = 60;
+  const BASE_Y = 0;
+  const leftX = 35;
   const leftY = BASE_Y;
-  const rightX = 200;
+  const rightX = 160;
   const rightY = BASE_Y;
-  const equalX = 240;
-  const equalY = BASE_Y;
-  const calculatedX = 280;
+  const equalX = 200;
+  const equalY = BASE_Y - 2;
+  const calculatedX = 250;
   const calculatedY = BASE_Y;
   return { leftX, leftY, rightX, rightY, equalX, equalY, calculatedX, calculatedY };
 }
