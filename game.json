@@ -219,6 +219,16 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
+		},
+		"problem": {
+			"type": "image",
+			"width": 128,
+			"height": 128,
+			"path": "image/problem.png"
+		},
+		"problem_glyphs": {
+			"type": "text",
+			"path": "text/problem_glyphs.json"
 		}
 	},
 	"environment": {

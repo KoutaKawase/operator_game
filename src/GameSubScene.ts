@@ -42,8 +42,8 @@ export class GameSubScene extends SubScene {
   protected async loadedHandler(): Promise<void> {
     const gameUIBase = createGameUIBase(this);
     this.append(gameUIBase);
-    this.problem = new Problem();
-    console.log(this.problem.pickProblemRandomly());
+    this.problem = new Problem(this);
+    this.problem.show();
     this.gameTime = new Time(this);
     this.gameTime.show();
     this.score = new Score(this);
@@ -56,7 +56,6 @@ export class GameSubScene extends SubScene {
     this.update.add(this.updateHandler);
 
     await this.runReadySound();
-    console.log(g.game.vars.gameState.totalTimeLimit);
     console.log(this.isInGame);
   }
 

@@ -1,3 +1,5 @@
+import { getProblemFont, getProblemLabel, getProblemPoint } from './utils/entityUtil';
+
 function isCalculatedNegative(left: number, right: number): boolean {
   return Math.sign(left - right) === -1;
 }
@@ -34,25 +36,82 @@ export type Combination = {
 };
 
 //答えが整数のみになる組み合わせの式リスト
-export type CombinationList = {
+type CombinationList = {
   '+': Combination[];
   '-': Combination[];
   '*': Combination[];
   '/': Combination[];
 };
 
+type ProblemLabel = {
+  left: g.Label;
+  right: g.Label;
+  equal: g.Label;
+  calculated: g.Label;
+};
+
+type TextProblem = {
+  leftText: string;
+  rightText: string;
+  equalText: string;
+  calculatedText: string;
+};
+
 export class Problem {
   //有効な式リスト
   private readonly validCombinations: CombinationList;
+  private currentProblem: Combination;
+  private scene: g.Scene;
+  private problemLabel: ProblemLabel;
 
-  constructor() {
+  constructor(scene: g.Scene) {
     this.validCombinations = this.createValidCombinations();
+    this.currentProblem = this.pickProblemRandomly();
+    this.scene = scene;
+    this.problemLabel = this.createProblemLabel();
+  }
+
+  show(): void {
+    this.scene.append(this.problemLabel.left);
+    this.scene.append(this.problemLabel.right);
+    this.scene.append(this.problemLabel.equal);
+    this.scene.append(this.problemLabel.calculated);
   }
 
   pickProblemRandomly(): Combination {
     const operator = getRandomOperator();
     const index = getRandomIndex(this.validCombinations[operator].length);
     return this.validCombinations[operator][index];
+  }
+
+  private createProblemLabel(): ProblemLabel {
+    const scene = this.scene;
+    const { leftText, rightText, equalText, calculatedText } = this.stringifyProblem();
+    const {
+      leftX,
+      leftY,
+      rightX,
+      rightY,
+      equalX,
+      equalY,
+      calculatedX,
+      calculatedY,
+    } = getProblemPoint();
+    const font: g.BitmapFont = getProblemFont(scene);
+    const left = getProblemLabel(scene, font, leftText, leftX, leftY);
+    const right = getProblemLabel(scene, font, rightText, rightX, rightY);
+    const equal = getProblemLabel(scene, font, equalText, equalX, equalY);
+    const calculated = getProblemLabel(scene, font, calculatedText, calculatedX, calculatedY);
+
+    return { left, right, equal, calculated };
+  }
+
+  private stringifyProblem(): TextProblem {
+    const leftText = this.currentProblem.left.toString();
+    const rightText = this.currentProblem.right.toString();
+    const equalText = '=';
+    const calculatedText = this.currentProblem.calculated.toString();
+    return { leftText, rightText, equalText, calculatedText };
   }
 
   private createValidCombinations(): CombinationList {
