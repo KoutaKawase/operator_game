@@ -6,6 +6,14 @@ function isCalculatedInteger(left: number, right: number): boolean {
   return Number.isInteger(left / right);
 }
 
+function getRandomOperator(): Operator {
+  const operators = ['+', '-', '*', '/'];
+  return operators[Math.floor(Math.random() * operators.length)] as Operator;
+}
+
+function getRandomIndex(max: number): number {
+  return Math.floor(Math.random() * max);
+}
 //答えの演算子が複数存在するような組み合わせを検査する
 //example) 2 + 2 と 2 * 2のような組み合わせ
 //全ての演算子のパターンを計算し格納し計算結果が他と重複していれば
@@ -15,9 +23,11 @@ function isOperatorDuplicate(left: number, right: number): boolean {
   return new Set(calculateds).size !== calculateds.length;
 }
 
+type Operator = '+' | '-' | '*' | '/';
+
 export type Combination = {
   left: number;
-  operator: '+' | '-' | '*' | '/';
+  operator: Operator;
   right: number;
   calculated: number;
 };
@@ -36,7 +46,12 @@ export class Problem {
 
   constructor() {
     this.validCombinations = this.createValidCombinations();
-    console.log(this.validCombinations);
+  }
+
+  pickProblemRandomly(): Combination {
+    const operator = getRandomOperator();
+    const index = getRandomIndex(this.validCombinations[operator].length);
+    return this.validCombinations[operator][index];
   }
 
   private createValidCombinations(): CombinationList {
@@ -91,3 +106,6 @@ export class Problem {
     return list;
   }
 }
+
+const p = new Problem();
+console.log(p.pickProblemRandomly());

@@ -214,6 +214,11 @@
 			"type": "script",
 			"path": "script/Choice.js",
 			"global": true
+		},
+		"Problem": {
+			"type": "script",
+			"path": "script/Problem.js",
+			"global": true
 		}
 	},
 	"environment": {
