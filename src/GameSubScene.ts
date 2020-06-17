@@ -8,7 +8,7 @@ import { Choice } from './Choice';
 import { Problem } from './Problem';
 
 export class GameSubScene extends SubScene {
-  private isInGame: boolean;
+  private isInGame = false;
   private gameTime: Time | null;
   private score: Score | null;
   private answer: Answer | null;
@@ -19,7 +19,6 @@ export class GameSubScene extends SubScene {
 
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
-    this.isInGame = false;
     this.gameTime = null;
     this.score = null;
     this.answer = null;
@@ -53,14 +52,16 @@ export class GameSubScene extends SubScene {
     this.choice = new Choice(this);
     this.choice.show();
 
-    this.update.add(this.updateHandler);
+    this.update.add(this.updateHandler, this);
 
     await this.runReadySound();
-    this.problem.remove();
-    console.log(this.isInGame);
   }
 
   protected updateHandler(): void {
     super.commonUpdateHandler();
+    if (this.isInGame && !this.gameTime?.isFinished()) {
+      this.gameTime?.count();
+      this.gameTime?.update();
+    }
   }
 }

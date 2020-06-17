@@ -2,7 +2,7 @@ export class Time {
   private timeLabel: g.Label;
   private scene: g.Scene;
   //プレイするゲームそのものの制限時間
-  private gameTime = 70;
+  private gameTime = 4;
 
   constructor(scene: g.Scene) {
     this.scene = scene;
@@ -11,6 +11,19 @@ export class Time {
 
   show(): void {
     this.scene.append(this.timeLabel);
+  }
+
+  count(): void {
+    this.gameTime -= 1 / g.game.fps;
+  }
+
+  update(): void {
+    this.timeLabel.text = Math.trunc(this.gameTime).toString();
+    this.timeLabel.invalidate();
+  }
+
+  isFinished(): boolean {
+    return this.gameTime <= 0;
   }
 
   private createTimeLabel(): g.Label {
