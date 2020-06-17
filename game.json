@@ -96,9 +96,53 @@
 			"type": "text",
 			"path": "text/score_num_glyphs.json"
 		},
+		"answer": {
+			"type": "image",
+			"width": 128,
+			"height": 72,
+			"path": "image/answer.png"
+		},
+		"answer_glyphs": {
+			"type": "text",
+			"path": "text/answer_glyphs.json"
+		},
+		"cross": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/cross.png"
+		},
+		"div": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/div.png"
+		},
+		"minus": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/minus.png"
+		},
+		"plus": {
+			"type": "image",
+			"width": 80,
+			"height": 60,
+			"path": "image/plus.png"
+		},
+		"Answer": {
+			"type": "script",
+			"path": "script/Answer.js",
+			"global": true
+		},
 		"AssetInfos": {
 			"type": "script",
 			"path": "script/AssetInfos.js",
+			"global": true
+		},
+		"Choice": {
+			"type": "script",
+			"path": "script/Choice.js",
 			"global": true
 		},
 		"DescriptionSubScene": {
@@ -114,6 +158,11 @@
 		"MainSceneController": {
 			"type": "script",
 			"path": "script/MainSceneController.js",
+			"global": true
+		},
+		"Problem": {
+			"type": "script",
+			"path": "script/Problem.js",
 			"global": true
 		},
 		"Score": {
@@ -170,55 +219,6 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
-		},
-		"answer": {
-			"type": "image",
-			"width": 128,
-			"height": 72,
-			"path": "image/answer.png"
-		},
-		"answer_glyphs": {
-			"type": "text",
-			"path": "text/answer_glyphs.json"
-		},
-		"Answer": {
-			"type": "script",
-			"path": "script/Answer.js",
-			"global": true
-		},
-		"cross": {
-			"type": "image",
-			"width": 80,
-			"height": 60,
-			"path": "image/cross.png"
-		},
-		"div": {
-			"type": "image",
-			"width": 80,
-			"height": 60,
-			"path": "image/div.png"
-		},
-		"minus": {
-			"type": "image",
-			"width": 80,
-			"height": 60,
-			"path": "image/minus.png"
-		},
-		"plus": {
-			"type": "image",
-			"width": 80,
-			"height": 60,
-			"path": "image/plus.png"
-		},
-		"Choice": {
-			"type": "script",
-			"path": "script/Choice.js",
-			"global": true
-		},
-		"Problem": {
-			"type": "script",
-			"path": "script/Problem.js",
-			"global": true
 		}
 	},
 	"environment": {
@@ -226,7 +226,10 @@
 		"niconico": {
 			"supportedModes": [
 				"ranking"
-			]
+			],
+			"preferredSessionParameters": {
+				"totalTimeLimit": 150
+			}
 		}
 	},
 	"globalScripts": [
