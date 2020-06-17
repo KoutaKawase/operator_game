@@ -15,4 +15,6 @@ export const gameAsset = [
   'minus',
   'cross',
   'div',
+  'problem',
+  'problem_glyphs',
 ];
