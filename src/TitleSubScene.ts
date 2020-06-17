@@ -11,6 +11,8 @@ export class TitleSubScene extends SubScene {
   protected loadedHandler(): void {
     (this.assets['titleBgm'] as g.AudioAsset).play();
 
+    this.update.add(this.updateHandler);
+
     const background = new g.FilledRect({
       scene: this,
       width: g.game.width,
@@ -87,6 +89,6 @@ export class TitleSubScene extends SubScene {
   }
 
   protected updateHandler(): void {
-    //mock
+    super.commonUpdateHandler();
   }
 }

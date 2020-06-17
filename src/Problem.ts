@@ -8,11 +8,12 @@ function isCalculatedInteger(left: number, right: number): boolean {
 
 function getRandomOperator(): Operator {
   const operators = ['+', '-', '*', '/'];
-  return operators[Math.floor(Math.random() * operators.length)] as Operator;
+  const random = g.game.random;
+  return operators[Math.floor(random.generate() * operators.length)] as Operator;
 }
 
 function getRandomIndex(max: number): number {
-  return Math.floor(Math.random() * max);
+  return Math.floor(g.game.random.generate() * max);
 }
 //答えの演算子が複数存在するような組み合わせを検査する
 //example) 2 + 2 と 2 * 2のような組み合わせ
@@ -106,6 +107,3 @@ export class Problem {
     return list;
   }
 }
-
-const p = new Problem();
-console.log(p.pickProblemRandomly());

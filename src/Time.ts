@@ -1,6 +1,8 @@
 export class Time {
   private timeLabel: g.Label;
   private scene: g.Scene;
+  //プレイするゲームそのものの制限時間
+  private gameTime = 70;
 
   constructor(scene: g.Scene) {
     this.scene = scene;
@@ -27,7 +29,7 @@ export class Time {
 
     const timeLabel = new g.Label({
       scene,
-      text: '120',
+      text: this.gameTime.toString(),
       font,
       x: 450,
       y: 32,

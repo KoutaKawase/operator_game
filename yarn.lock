@@ -74,14 +74,14 @@
   resolved "https://registry.yarnpkg.com/@akashic/akashic-engine/-/akashic-engine-2.1.2.tgz#86b17477eae6f22278161c7be3871a2dc5aea839"
   integrity sha1-hrF0d+rm8iJ4Fhx744caLcWuqDk=
 
-"@akashic/akashic-sandbox@~0.13.55":
-  version "0.13.69"
-  resolved "https://registry.yarnpkg.com/@akashic/akashic-sandbox/-/akashic-sandbox-0.13.69.tgz#5b2e9ebe66ea4384089af0ab38c82bc891f5ccbb"
-  integrity sha512-yoIb8RWBhjtNF0LgxOv7npdZNQ2/R1He2DKliUt7VcbEoWlymfH8IRtIK6WRypPtwsJlle7FvZXIaCwl592JxQ==
+"@akashic/akashic-sandbox@0.15":
+  version "0.15.23"
+  resolved "https://registry.yarnpkg.com/@akashic/akashic-sandbox/-/akashic-sandbox-0.15.23.tgz#369e09905aca97d34496b23eaf3f11c1ed05ead8"
+  integrity sha512-CS4eo4S/Odl9G8d2FA3lKjvLCddC8xn/2+fEKQSW2XYr1A8psOqZEoUq5CG6jqWvJs1Lv8Q9mkqXgPuMydq0Ng==
   dependencies:
     commander "^2.8.0"
     debug "^2.1.3"
-    ect "^0.5.9"
+    ejs "~2.7.1"
     express "^4.12.3"
     express-session "^1.11.3"
     serve-favicon "^2.2.0"
@@ -3216,6 +3216,11 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+
+ejs@~2.7.1:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
+  integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.413, electron-to-chromium@^1.3.47:
   version "1.3.464"
