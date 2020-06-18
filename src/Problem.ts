@@ -68,6 +68,10 @@ export class Problem {
     this.scene.append(this.problemLabel);
   }
 
+  compareWith(operator: Operator): boolean {
+    return this.currentProblem.operator === operator;
+  }
+
   remove(): void {
     this.scene.remove(this.problemLabel);
   }

@@ -1,4 +1,5 @@
 import { Operator } from '../Problem';
+import { Answer } from '../Answer';
 
 type SpriteInfo = {
   scene: g.Scene;
@@ -10,9 +11,11 @@ type SpriteInfo = {
 
 export abstract class OperatorSprite extends g.Sprite {
   protected abstract operator: Operator;
+  protected answer: Answer;
 
-  constructor(spriteInfo: SpriteInfo) {
+  constructor(spriteInfo: SpriteInfo, answer: Answer) {
     super(spriteInfo);
+    this.answer = answer;
   }
 
   public initHandler(): void {

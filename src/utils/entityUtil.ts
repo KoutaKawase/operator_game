@@ -87,3 +87,19 @@ export function getProblemPoint(): ProblemPoint {
   const calculatedY = BASE_Y;
   return { leftX, leftY, rightX, rightY, equalX, equalY, calculatedX, calculatedY };
 }
+
+export function getAnswerFont(scene: g.Scene): g.BitmapFont {
+  const font = scene.assets['answer'];
+  const glyph = scene.assets['answer_glyphs'] as g.TextAsset;
+  const glyphData = JSON.parse(glyph.data);
+
+  const bitmapfont = new g.BitmapFont({
+    src: font,
+    map: glyphData.map,
+    defaultGlyphWidth: glyphData.width,
+    defaultGlyphHeight: glyphData.height,
+    missingGlyph: glyphData.missingGlyph,
+  });
+
+  return bitmapfont;
+}

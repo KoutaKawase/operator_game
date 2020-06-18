@@ -1,13 +1,19 @@
+import { getAnswerFont } from './utils/entityUtil';
+import { Operator } from './Problem';
+import { Problem } from './Problem';
+
 export class Answer {
   private correctAnswerCountLabel: { left: g.Label; right: g.Label };
+  private problem: Problem;
   private scene: g.Scene;
 
-  constructor(scene: g.Scene) {
+  constructor(scene: g.Scene, problem: Problem) {
     this.scene = scene;
     this.correctAnswerCountLabel = {
       left: this.createLeftLabel(),
       right: this.createRightLabel(),
     };
+    this.problem = problem;
   }
 
   show(): void {
@@ -15,19 +21,19 @@ export class Answer {
     this.scene.append(this.correctAnswerCountLabel.right);
   }
 
+  /**
+   * ユーザーが選んだ答えと問題の答え合わせをする
+   * @param operator ユーザーの選んだ演算子
+   * @return {boolean} 正解したかどうかの真偽値
+   */
+  submit(operator: Operator): boolean {
+    const isCorrect = this.problem.compareWith(operator);
+    return isCorrect;
+  }
+
   private createRightLabel(): g.Label {
     const scene = this.scene;
-    const rightFont = scene.assets['answer'];
-    const rightGlyph = scene.assets['answer_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(rightGlyph.data);
-
-    const font = new g.BitmapFont({
-      src: rightFont,
-      map: glyphData.map,
-      defaultGlyphWidth: glyphData.width,
-      defaultGlyphHeight: glyphData.height,
-      missingGlyph: glyphData.missingGlyph,
-    });
+    const font = getAnswerFont(this.scene);
 
     const rightLabel = new g.Label({
       scene,
@@ -43,17 +49,7 @@ export class Answer {
 
   private createLeftLabel(): g.Label {
     const scene = this.scene;
-    const leftFont = scene.assets['answer'];
-    const leftGlyph = scene.assets['answer_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(leftGlyph.data);
-
-    const font = new g.BitmapFont({
-      src: leftFont,
-      map: glyphData.map,
-      defaultGlyphWidth: glyphData.width,
-      defaultGlyphHeight: glyphData.height,
-      missingGlyph: glyphData.missingGlyph,
-    });
+    const font = getAnswerFont(this.scene);
 
     const leftLabel = new g.Label({
       scene,
