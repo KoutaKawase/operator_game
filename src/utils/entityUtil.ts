@@ -41,22 +41,6 @@ export function createTimeLabel(scene: g.Scene): g.Label {
   return timeLabel;
 }
 
-export function getProblemFont(scene: g.Scene): g.BitmapFont {
-  const problemFont = scene.assets['problem'];
-  const problemGlyphs = scene.assets['problem_glyphs'] as g.TextAsset;
-  const glyphData = JSON.parse(problemGlyphs.data);
-
-  const font = new g.BitmapFont({
-    src: problemFont,
-    map: glyphData.map,
-    defaultGlyphWidth: glyphData.width,
-    defaultGlyphHeight: glyphData.height,
-    missingGlyph: glyphData.missingGlyph,
-  });
-
-  return font;
-}
-
 export function getProblemLabel(
   scene: g.Scene,
   font: g.BitmapFont,
@@ -88,12 +72,12 @@ export function getProblemPoint(): ProblemPoint {
   return { leftX, leftY, rightX, rightY, equalX, equalY, calculatedX, calculatedY };
 }
 
-export function getAnswerFont(scene: g.Scene): g.BitmapFont {
-  const font = scene.assets['answer'];
-  const glyph = scene.assets['answer_glyphs'] as g.TextAsset;
+export function getFont(scene: g.Scene, assetsName: string): g.BitmapFont {
+  const font = scene.assets[assetsName];
+  const glyph = scene.assets[`${assetsName}_glyphs`] as g.AudioAsset;
   const glyphData = JSON.parse(glyph.data);
 
-  const bitmapfont = new g.BitmapFont({
+  const bmf = new g.BitmapFont({
     src: font,
     map: glyphData.map,
     defaultGlyphWidth: glyphData.width,
@@ -101,5 +85,5 @@ export function getAnswerFont(scene: g.Scene): g.BitmapFont {
     missingGlyph: glyphData.missingGlyph,
   });
 
-  return bitmapfont;
+  return bmf;
 }

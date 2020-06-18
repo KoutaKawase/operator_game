@@ -1,4 +1,4 @@
-import { getProblemFont, getProblemLabel, getProblemPoint } from './utils/entityUtil';
+import { getFont, getProblemLabel, getProblemPoint } from './utils/entityUtil';
 
 function isCalculatedNegative(left: number, right: number): boolean {
   return Math.sign(left - right) === -1;
@@ -96,7 +96,7 @@ export class Problem {
       calculatedX,
       calculatedY,
     } = getProblemPoint();
-    const font: g.BitmapFont = getProblemFont(scene);
+    const font: g.BitmapFont = getFont(scene, 'problem');
     const left = getProblemLabel(scene, font, leftText, leftX, leftY);
     group.append(left);
     const right = getProblemLabel(scene, font, rightText, rightX, rightY);

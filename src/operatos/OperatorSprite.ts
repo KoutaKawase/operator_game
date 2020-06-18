@@ -32,6 +32,7 @@ export abstract class OperatorSprite extends g.Sprite {
     const isCorrect = this.answer.submit(this.operator);
     if (isCorrect) {
       this.currect.play();
+      this.answer.count();
     } else {
       this.fail.play();
     }
