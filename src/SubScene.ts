@@ -35,14 +35,15 @@ export abstract class SubScene extends g.Scene {
     const time = g.game.vars.gameState.totalTimeLimit;
     const { isAtsumaru, score } = g.game.vars.gameState;
 
-    if (time <= 0) {
+    if (Math.trunc(time) <= 0) {
       if (isAtsumaru) {
         const boardId = 1;
         window.RPGAtsumaru.experimental.scoreboards.setRecord(boardId, score).then(() => {
           window.RPGAtsumaru.experimental.scoreboards.display(boardId);
         });
       }
-      this.update.remove(this.updateHandler);
+      console.log('end');
+      this.update.remove(this.commonUpdateHandler, this);
     }
     g.game.vars.gameState.totalTimeLimit -= 1 / g.game.fps;
   }

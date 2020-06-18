@@ -13,6 +13,23 @@ export class Time {
     this.scene.append(this.timeLabel);
   }
 
+  count(): void {
+    this.gameTime -= 1 / g.game.fps;
+  }
+
+  update(): void {
+    this.timeLabel.text = Math.trunc(this.gameTime).toString();
+    this.timeLabel.invalidate();
+  }
+
+  now(): number {
+    return this.gameTime;
+  }
+
+  isFinished(): boolean {
+    return this.gameTime <= 0;
+  }
+
   private createTimeLabel(): g.Label {
     const scene = this.scene;
     const timeFont = scene.assets['time_num'];

@@ -3,6 +3,8 @@ import { SubScene } from './SubScene';
 import { Label } from '@akashic-extension/akashic-label';
 
 export class DescriptionSubScene extends SubScene {
+  static readonly DISPLAY_TIME = 3000;
+
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
   }
@@ -53,7 +55,7 @@ export class DescriptionSubScene extends SubScene {
 
     this.setTimeout(() => {
       this.goNext();
-    }, 1000);
+    }, DescriptionSubScene.DISPLAY_TIME);
   }
 
   protected updateHandler(): void {
