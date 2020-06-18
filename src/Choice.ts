@@ -3,10 +3,6 @@ import { Plus, Minus, Cross, Div } from './operatos';
 export class Choice {
   private scene: g.Scene;
   private readonly operators: [Plus, Minus, Cross, Div];
-  //private operatos: [Plus, Minus, Cross. Div];
-  static readonly marginRight = 24;
-  static readonly spriteWidth = 80;
-  static readonly y = 278;
 
   constructor(scene: g.Scene) {
     this.scene = scene;

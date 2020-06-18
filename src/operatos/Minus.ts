@@ -1,22 +1,21 @@
-import { Choice } from '../Choice';
 import { Operator } from '../Problem';
+import { OPERATOR_WIDTH, MARGIN_RIGHT, FIXED_Y } from './Constants';
+import { OperatorSprite } from './OperatorSprite';
 
-export class Minus extends g.Sprite {
-  private operator: Operator = '-';
+export class Minus extends OperatorSprite {
+  protected operator: Operator = '-';
 
   constructor(scene: g.Scene) {
     super({
       scene,
       src: scene.assets['minus'],
-      x: Choice.spriteWidth + Choice.marginRight,
-      y: Choice.y,
+      x: OPERATOR_WIDTH + MARGIN_RIGHT,
+      y: FIXED_Y,
       touchable: true,
     });
   }
 
-  public initHandler(): void {
-    this.pointDown.add(() => {
-      console.log('You touched' + this.operator + ' operator');
-    });
+  protected pointDownHandler(): void {
+    console.log(this.operator);
   }
 }

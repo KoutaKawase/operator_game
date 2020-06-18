@@ -254,6 +254,16 @@
 			"type": "script",
 			"path": "script/operatos/index.js",
 			"global": true
+		},
+		"Constants": {
+			"type": "script",
+			"path": "script/operatos/Constants.js",
+			"global": true
+		},
+		"OperatorSprite": {
+			"type": "script",
+			"path": "script/operatos/OperatorSprite.js",
+			"global": true
 		}
 	},
 	"environment": {
