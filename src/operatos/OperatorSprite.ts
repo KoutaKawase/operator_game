@@ -1,6 +1,7 @@
 import { Operator } from '../Problem';
 import { Answer } from '../Answer';
 import { Score } from '../Score';
+import { Problem } from '../Problem';
 
 type SpriteInfo = {
   scene: g.Scene;
@@ -16,13 +17,15 @@ export abstract class OperatorSprite extends g.Sprite {
   protected score: Score;
   protected currect: g.AudioAsset;
   protected fail: g.AudioAsset;
+  protected problem: Problem;
 
-  constructor(spriteInfo: SpriteInfo, answer: Answer, score: Score) {
+  constructor(spriteInfo: SpriteInfo, answer: Answer, score: Score, problem: Problem) {
     super(spriteInfo);
     this.answer = answer;
     this.currect = spriteInfo.scene.assets['currect'] as g.AudioAsset;
     this.fail = spriteInfo.scene.assets['fail'] as g.AudioAsset;
     this.score = score;
+    this.problem = problem;
   }
 
   public initHandler(): void {
@@ -37,8 +40,10 @@ export abstract class OperatorSprite extends g.Sprite {
       this.currect.play();
       this.answer.count();
       this.score.count();
+      this.problem.reflesh();
     } else {
       this.fail.play();
+      this.problem.reflesh();
     }
   }
 }

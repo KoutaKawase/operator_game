@@ -49,7 +49,7 @@ export class GameSubScene extends SubScene {
     this.score.show();
     this.answer = new Answer(this, this.problem);
     this.answer.show();
-    this.choice = new Choice(this, this.answer, this.score);
+    this.choice = new Choice(this, this.answer, this.score, this.problem);
     this.choice.show();
 
     this.update.add(super.commonUpdateHandler, this);

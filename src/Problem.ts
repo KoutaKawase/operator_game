@@ -76,6 +76,13 @@ export class Problem {
     this.scene.remove(this.problemLabel);
   }
 
+  reflesh(): void {
+    this.scene.remove(this.problemLabel);
+    this.currentProblem = this.pickProblemRandomly();
+    this.problemLabel = this.createProblemLabel();
+    this.show();
+  }
+
   pickProblemRandomly(): Combination {
     const operator = getRandomOperator();
     const index = getRandomIndex(this.validCombinations[operator].length);

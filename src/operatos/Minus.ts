@@ -1,13 +1,12 @@
 import { Operator } from '../Problem';
 import { OPERATOR_WIDTH, MARGIN_RIGHT, FIXED_Y } from './Constants';
 import { OperatorSprite } from './OperatorSprite';
-import { Answer } from '../Answer';
-import { Score } from '../Score';
+import { OpeInfo } from '../Choice';
 
 export class Minus extends OperatorSprite {
   protected operator: Operator = '-';
 
-  constructor(scene: g.Scene, answer: Answer, score: Score) {
+  constructor({ scene, answer, score, problem }: OpeInfo) {
     super(
       {
         scene,
@@ -18,6 +17,7 @@ export class Minus extends OperatorSprite {
       },
       answer,
       score,
+      problem,
     );
   }
 }
