@@ -43,6 +43,7 @@ export abstract class OperatorSprite extends g.Sprite {
       this.problem.reflesh();
     } else {
       this.fail.play();
+      this.score.deduct();
       this.problem.reflesh();
     }
   }

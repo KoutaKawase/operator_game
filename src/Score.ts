@@ -29,6 +29,16 @@ export class Score {
     this.scoreLabel.right.invalidate();
   }
 
+  deduct(): void {
+    if (this.point === 0) return;
+    const deductPoint = 500;
+    this.point -= deductPoint;
+    g.game.vars.gameState.score = this.point;
+    const point = this.point.toString();
+    this.scoreLabel.right.text = point;
+    this.scoreLabel.right.invalidate();
+  }
+
   private createScoreRightLabel(): g.Label {
     const scene = this.scene;
     const font = getFont(this.scene, 'score_num');
