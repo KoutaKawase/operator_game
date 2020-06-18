@@ -3,6 +3,8 @@ import { getFont } from './utils/entityUtil';
 export class Score {
   private scoreLabel: { left: g.Label; right: g.Label };
   private scene: g.Scene;
+  private point: number;
+  static readonly FIXED_POINT = 2500;
 
   constructor(scene: g.Scene) {
     this.scene = scene;
@@ -10,11 +12,20 @@ export class Score {
       left: this.createScoreLeftLabel(),
       right: this.createScoreRightLabel(),
     };
+    this.point = 0;
   }
 
   show(): void {
     this.scene.append(this.scoreLabel.left);
     this.scene.append(this.scoreLabel.right);
+  }
+
+  count(): void {
+    this.point += Score.FIXED_POINT;
+    const point = this.point.toString();
+    this.scoreLabel.right.x = 540;
+    this.scoreLabel.right.text = point;
+    this.scoreLabel.right.invalidate();
   }
 
   private createScoreRightLabel(): g.Label {
