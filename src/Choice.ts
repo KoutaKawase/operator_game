@@ -2,10 +2,7 @@ import { Plus, Minus, Cross, Div } from './operatos';
 
 export class Choice {
   private scene: g.Scene;
-  private readonly plus: Plus;
-  private readonly minus: Minus;
-  private readonly cross: Cross;
-  private readonly div: Div;
+  private readonly operators: [Plus, Minus, Cross, Div];
   //private operatos: [Plus, Minus, Cross. Div];
   static readonly marginRight = 24;
   static readonly spriteWidth = 80;
@@ -13,30 +10,22 @@ export class Choice {
 
   constructor(scene: g.Scene) {
     this.scene = scene;
-    //this.plus = new g.Sprite({
-    //  scene,
-    //  src: scene.assets['plus'],
-    //  x: Choice.marginRight,
-    //  y: Choice.y,
-    //  touchable: true
-    //});
-    this.plus = new Plus(this.scene);
-    this.minus = new Minus(this.scene);
-    this.cross = new Cross(this.scene);
-    this.div = new Div(this.scene);
+    const plus = new Plus(this.scene);
+    const minus = new Minus(this.scene);
+    const cross = new Cross(this.scene);
+    const div = new Div(this.scene);
+    this.operators = [plus, minus, cross, div];
   }
 
   show(): void {
-    this.scene.append(this.plus);
-    this.scene.append(this.minus);
-    this.scene.append(this.cross);
-    this.scene.append(this.div);
+    this.operators.forEach((o) => {
+      this.scene.append(o);
+    });
   }
 
   initHandler(): void {
-    this.plus.initHandler();
-    this.minus.initHandler();
-    this.cross.initHandler();
-    this.div.initHandler();
+    this.operators.forEach((o) => {
+      o.initHandler();
+    });
   }
 }
