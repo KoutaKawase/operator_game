@@ -229,6 +229,31 @@
 		"problem_glyphs": {
 			"type": "text",
 			"path": "text/problem_glyphs.json"
+		},
+		"Cross": {
+			"type": "script",
+			"path": "script/operatos/Cross.js",
+			"global": true
+		},
+		"Div": {
+			"type": "script",
+			"path": "script/operatos/Div.js",
+			"global": true
+		},
+		"Minus": {
+			"type": "script",
+			"path": "script/operatos/Minus.js",
+			"global": true
+		},
+		"Plus": {
+			"type": "script",
+			"path": "script/operatos/Plus.js",
+			"global": true
+		},
+		"index": {
+			"type": "script",
+			"path": "script/operatos/index.js",
+			"global": true
 		}
 	},
 	"environment": {

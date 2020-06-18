@@ -26,7 +26,7 @@ function isOperatorDuplicate(left: number, right: number): boolean {
   return new Set(calculateds).size !== calculateds.length;
 }
 
-type Operator = '+' | '-' | '*' | '/';
+export type Operator = '+' | '-' | '*' | '/';
 
 export type Combination = {
   left: number;

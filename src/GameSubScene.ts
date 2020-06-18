@@ -56,6 +56,7 @@ export class GameSubScene extends SubScene {
     this.update.add(this.updateHandler, this);
 
     await this.runReadySound();
+    this.choice.initHandler();
   }
 
   protected updateHandler(): void {
