@@ -22,6 +22,7 @@ export class Score {
 
   count(): void {
     this.point += Score.FIXED_POINT;
+    g.game.vars.gameState.score = this.point;
     const point = this.point.toString();
     this.scoreLabel.right.x = 540;
     this.scoreLabel.right.text = point;
