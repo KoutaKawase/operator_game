@@ -130,6 +130,28 @@
 			"height": 60,
 			"path": "image/plus.png"
 		},
+		"problem": {
+			"type": "image",
+			"width": 128,
+			"height": 128,
+			"path": "image/problem.png"
+		},
+		"problem_glyphs": {
+			"type": "text",
+			"path": "text/problem_glyphs.json"
+		},
+		"currect": {
+			"type": "audio",
+			"path": "audio/currect",
+			"systemId": "sound",
+			"duration": 2064
+		},
+		"fail": {
+			"type": "audio",
+			"path": "audio/fail",
+			"systemId": "sound",
+			"duration": 462
+		},
 		"Answer": {
 			"type": "script",
 			"path": "script/Answer.js",
@@ -200,6 +222,41 @@
 			"path": "script/main2.js",
 			"global": true
 		},
+		"Constants": {
+			"type": "script",
+			"path": "script/operatos/Constants.js",
+			"global": true
+		},
+		"Cross": {
+			"type": "script",
+			"path": "script/operatos/Cross.js",
+			"global": true
+		},
+		"Div": {
+			"type": "script",
+			"path": "script/operatos/Div.js",
+			"global": true
+		},
+		"Minus": {
+			"type": "script",
+			"path": "script/operatos/Minus.js",
+			"global": true
+		},
+		"OperatorSprite": {
+			"type": "script",
+			"path": "script/operatos/OperatorSprite.js",
+			"global": true
+		},
+		"Plus": {
+			"type": "script",
+			"path": "script/operatos/Plus.js",
+			"global": true
+		},
+		"index": {
+			"type": "script",
+			"path": "script/operatos/index.js",
+			"global": true
+		},
 		"SceneInfo": {
 			"type": "script",
 			"path": "script/types/SceneInfo.js",
@@ -219,63 +276,6 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
-		},
-		"problem": {
-			"type": "image",
-			"width": 128,
-			"height": 128,
-			"path": "image/problem.png"
-		},
-		"problem_glyphs": {
-			"type": "text",
-			"path": "text/problem_glyphs.json"
-		},
-		"Cross": {
-			"type": "script",
-			"path": "script/operatos/Cross.js",
-			"global": true
-		},
-		"Div": {
-			"type": "script",
-			"path": "script/operatos/Div.js",
-			"global": true
-		},
-		"Minus": {
-			"type": "script",
-			"path": "script/operatos/Minus.js",
-			"global": true
-		},
-		"Plus": {
-			"type": "script",
-			"path": "script/operatos/Plus.js",
-			"global": true
-		},
-		"index": {
-			"type": "script",
-			"path": "script/operatos/index.js",
-			"global": true
-		},
-		"Constants": {
-			"type": "script",
-			"path": "script/operatos/Constants.js",
-			"global": true
-		},
-		"OperatorSprite": {
-			"type": "script",
-			"path": "script/operatos/OperatorSprite.js",
-			"global": true
-		},
-		"currect": {
-			"type": "audio",
-			"path": "audio/currect",
-			"systemId": "sound",
-			"duration": 2064
-		},
-		"fail": {
-			"type": "audio",
-			"path": "audio/fail",
-			"systemId": "sound",
-			"duration": 462
 		}
 	},
 	"environment": {
