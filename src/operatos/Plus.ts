@@ -18,8 +18,4 @@ export class Plus extends OperatorSprite {
       answer,
     );
   }
-
-  protected pointDownHandler(): void {
-    console.log(this.answer.submit(this.operator));
-  }
 }

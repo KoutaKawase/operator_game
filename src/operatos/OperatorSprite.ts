@@ -12,10 +12,14 @@ type SpriteInfo = {
 export abstract class OperatorSprite extends g.Sprite {
   protected abstract operator: Operator;
   protected answer: Answer;
+  protected currect: g.AudioAsset;
+  protected fail: g.AudioAsset;
 
   constructor(spriteInfo: SpriteInfo, answer: Answer) {
     super(spriteInfo);
     this.answer = answer;
+    this.currect = spriteInfo.scene.assets['currect'] as g.AudioAsset;
+    this.fail = spriteInfo.scene.assets['fail'] as g.AudioAsset;
   }
 
   public initHandler(): void {
@@ -24,5 +28,12 @@ export abstract class OperatorSprite extends g.Sprite {
     });
   }
 
-  protected abstract pointDownHandler(): void;
+  private pointDownHandler(): void {
+    const isCorrect = this.answer.submit(this.operator);
+    if (isCorrect) {
+      this.currect.play();
+    } else {
+      this.fail.play();
+    }
+  }
 }

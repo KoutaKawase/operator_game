@@ -264,6 +264,18 @@
 			"type": "script",
 			"path": "script/operatos/OperatorSprite.js",
 			"global": true
+		},
+		"currect": {
+			"type": "audio",
+			"path": "audio/currect",
+			"systemId": "sound",
+			"duration": 2064
+		},
+		"fail": {
+			"type": "audio",
+			"path": "audio/fail",
+			"systemId": "sound",
+			"duration": 462
 		}
 	},
 	"environment": {
