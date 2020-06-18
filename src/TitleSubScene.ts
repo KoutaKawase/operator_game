@@ -2,7 +2,7 @@ import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
 
 export class TitleSubScene extends SubScene {
-  static readonly DISPLAY_TIME = 1000;
+  static readonly DISPLAY_TIME = 8000;
 
   constructor(sceneInfo: SceneInfo) {
     super(sceneInfo);
@@ -29,6 +29,14 @@ export class TitleSubScene extends SubScene {
       y: g.game.height - 150,
     });
     this.append(fox);
+
+    const ad = new g.Sprite({
+      scene: this,
+      src: this.assets['koukoku'],
+      y: 165,
+      x: -10,
+    });
+    this.append(ad);
 
     const zzz = new g.FrameSprite({
       scene: this,

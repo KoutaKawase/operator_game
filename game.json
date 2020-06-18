@@ -276,6 +276,12 @@
 			"type": "script",
 			"path": "script/utils/gameUtil.js",
 			"global": true
+		},
+		"koukoku": {
+			"type": "image",
+			"width": 250,
+			"height": 200,
+			"path": "image/koukoku.png"
 		}
 	},
 	"environment": {
