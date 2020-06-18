@@ -23,10 +23,7 @@ export class Score {
   count(): void {
     this.point += Score.FIXED_POINT;
     g.game.vars.gameState.score = this.point;
-    const point = this.point.toString();
-    this.scoreLabel.right.x = 540;
-    this.scoreLabel.right.text = point;
-    this.scoreLabel.right.invalidate();
+    this.updateRightLabel(540);
   }
 
   deduct(): void {
@@ -34,8 +31,15 @@ export class Score {
     const deductPoint = 500;
     this.point -= deductPoint;
     g.game.vars.gameState.score = this.point;
-    const point = this.point.toString();
-    this.scoreLabel.right.text = point;
+    this.updateRightLabel();
+  }
+
+  private updateRightLabel(x?: number): void {
+    const pointStr = this.point.toString();
+    if (x != null) {
+      this.scoreLabel.right.x = x;
+    }
+    this.scoreLabel.right.text = pointStr;
     this.scoreLabel.right.invalidate();
   }
 
