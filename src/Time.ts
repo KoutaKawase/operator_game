@@ -2,7 +2,7 @@ export class Time {
   private timeLabel: g.Label;
   private scene: g.Scene;
   //プレイするゲームそのものの制限時間
-  private gameTime = 2;
+  private gameTime = 70;
 
   constructor(scene: g.Scene) {
     this.scene = scene;
