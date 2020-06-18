@@ -1,39 +1,54 @@
-export class Answer {
-  private correctAnswerCountLabel: { left: g.Label; right: g.Label };
-  private scene: g.Scene;
+import { getFont } from './utils/entityUtil';
+import { Operator } from './Problem';
+import { Problem } from './Problem';
 
-  constructor(scene: g.Scene) {
+export class Answer {
+  private currectAnswerCountLabel: { left: g.Label; right: g.Label };
+  private problem: Problem;
+  private scene: g.Scene;
+  private currectCount: number;
+
+  constructor(scene: g.Scene, problem: Problem) {
     this.scene = scene;
-    this.correctAnswerCountLabel = {
+    this.currectAnswerCountLabel = {
       left: this.createLeftLabel(),
       right: this.createRightLabel(),
     };
+    this.problem = problem;
+    this.currectCount = 0;
   }
 
   show(): void {
-    this.scene.append(this.correctAnswerCountLabel.left);
-    this.scene.append(this.correctAnswerCountLabel.right);
+    this.scene.append(this.currectAnswerCountLabel.left);
+    this.scene.append(this.currectAnswerCountLabel.right);
+  }
+
+  count(): void {
+    this.currectCount += 1;
+    const count = this.currectCount.toString();
+    this.currectAnswerCountLabel.right.text = count + '回';
+    this.currectAnswerCountLabel.right.invalidate();
+  }
+
+  /**
+   * ユーザーが選んだ答えと問題の答え合わせをする
+   * @param operator ユーザーの選んだ演算子
+   * @return {boolean} 正解したかどうかの真偽値
+   */
+  submit(operator: Operator): boolean {
+    const isCorrect = this.problem.compareWith(operator);
+    return isCorrect;
   }
 
   private createRightLabel(): g.Label {
     const scene = this.scene;
-    const rightFont = scene.assets['answer'];
-    const rightGlyph = scene.assets['answer_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(rightGlyph.data);
-
-    const font = new g.BitmapFont({
-      src: rightFont,
-      map: glyphData.map,
-      defaultGlyphWidth: glyphData.width,
-      defaultGlyphHeight: glyphData.height,
-      missingGlyph: glyphData.missingGlyph,
-    });
+    const font = getFont(this.scene, 'answer');
 
     const rightLabel = new g.Label({
       scene,
       text: '0回',
       font,
-      x: 580,
+      x: 570,
       y: 100,
       fontSize: font.size,
     });
@@ -43,17 +58,7 @@ export class Answer {
 
   private createLeftLabel(): g.Label {
     const scene = this.scene;
-    const leftFont = scene.assets['answer'];
-    const leftGlyph = scene.assets['answer_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(leftGlyph.data);
-
-    const font = new g.BitmapFont({
-      src: leftFont,
-      map: glyphData.map,
-      defaultGlyphWidth: glyphData.width,
-      defaultGlyphHeight: glyphData.height,
-      missingGlyph: glyphData.missingGlyph,
-    });
+    const font = getFont(this.scene, 'answer');
 
     const leftLabel = new g.Label({
       scene,

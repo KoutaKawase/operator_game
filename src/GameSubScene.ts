@@ -47,15 +47,16 @@ export class GameSubScene extends SubScene {
     this.gameTime.show();
     this.score = new Score(this);
     this.score.show();
-    this.answer = new Answer(this);
+    this.answer = new Answer(this, this.problem);
     this.answer.show();
-    this.choice = new Choice(this);
+    this.choice = new Choice(this, this.answer, this.score, this.problem);
     this.choice.show();
 
     this.update.add(super.commonUpdateHandler, this);
     this.update.add(this.updateHandler, this);
 
     await this.runReadySound();
+    this.choice.initHandler();
   }
 
   protected updateHandler(): void {

@@ -1,45 +1,38 @@
+import { Plus, Minus, Cross, Div } from './operatos';
+import { Answer } from './Answer';
+import { Score } from './Score';
+import { Problem } from './Problem';
+
+export type OpeInfo = {
+  scene: g.Scene;
+  answer: Answer;
+  score: Score;
+  problem: Problem;
+};
+
 export class Choice {
   private scene: g.Scene;
-  private readonly plus: g.Sprite;
-  private readonly minus: g.Sprite;
-  private readonly cross: g.Sprite;
-  private readonly div: g.Sprite;
-  static readonly marginRight = 24;
-  static readonly spriteWidth = 80;
-  static readonly y = 278;
+  private readonly operators: [Plus, Minus, Cross, Div];
 
-  constructor(scene: g.Scene) {
+  constructor(scene: g.Scene, answer: Answer, score: Score, problem: Problem) {
     this.scene = scene;
-    this.plus = new g.Sprite({
-      scene,
-      src: scene.assets['plus'],
-      x: Choice.marginRight,
-      y: Choice.y,
-    });
-    this.minus = new g.Sprite({
-      scene,
-      src: scene.assets['minus'],
-      x: Choice.spriteWidth + Choice.marginRight,
-      y: Choice.y,
-    });
-    this.cross = new g.Sprite({
-      scene,
-      src: scene.assets['cross'],
-      x: Choice.spriteWidth * 2 + Choice.marginRight,
-      y: Choice.y,
-    });
-    this.div = new g.Sprite({
-      scene,
-      src: scene.assets['div'],
-      x: Choice.spriteWidth * 3 + Choice.marginRight,
-      y: Choice.y,
-    });
+    const operatorInfo = { scene: this.scene, answer, score, problem };
+    const plus = new Plus(operatorInfo);
+    const minus = new Minus(operatorInfo);
+    const cross = new Cross(operatorInfo);
+    const div = new Div(operatorInfo);
+    this.operators = [plus, minus, cross, div];
   }
 
   show(): void {
-    this.scene.append(this.plus);
-    this.scene.append(this.minus);
-    this.scene.append(this.cross);
-    this.scene.append(this.div);
+    this.operators.forEach((o) => {
+      this.scene.append(o);
+    });
+  }
+
+  initHandler(): void {
+    this.operators.forEach((o) => {
+      o.initHandler();
+    });
   }
 }

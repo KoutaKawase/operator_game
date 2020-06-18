@@ -1,4 +1,4 @@
-import { getProblemFont, getProblemLabel, getProblemPoint } from './utils/entityUtil';
+import { getFont, getProblemLabel, getProblemPoint } from './utils/entityUtil';
 
 function isCalculatedNegative(left: number, right: number): boolean {
   return Math.sign(left - right) === -1;
@@ -26,7 +26,7 @@ function isOperatorDuplicate(left: number, right: number): boolean {
   return new Set(calculateds).size !== calculateds.length;
 }
 
-type Operator = '+' | '-' | '*' | '/';
+export type Operator = '+' | '-' | '*' | '/';
 
 export type Combination = {
   left: number;
@@ -68,8 +68,19 @@ export class Problem {
     this.scene.append(this.problemLabel);
   }
 
+  compareWith(operator: Operator): boolean {
+    return this.currentProblem.operator === operator;
+  }
+
   remove(): void {
     this.scene.remove(this.problemLabel);
+  }
+
+  reflesh(): void {
+    this.scene.remove(this.problemLabel);
+    this.currentProblem = this.pickProblemRandomly();
+    this.problemLabel = this.createProblemLabel();
+    this.show();
   }
 
   pickProblemRandomly(): Combination {
@@ -92,7 +103,7 @@ export class Problem {
       calculatedX,
       calculatedY,
     } = getProblemPoint();
-    const font: g.BitmapFont = getProblemFont(scene);
+    const font: g.BitmapFont = getFont(scene, 'problem');
     const left = getProblemLabel(scene, font, leftText, leftX, leftY);
     group.append(left);
     const right = getProblemLabel(scene, font, rightText, rightX, rightY);

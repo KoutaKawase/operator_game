@@ -1,6 +1,10 @@
+import { getFont } from './utils/entityUtil';
+
 export class Score {
   private scoreLabel: { left: g.Label; right: g.Label };
   private scene: g.Scene;
+  private point: number;
+  static readonly FIXED_POINT = 2500;
 
   constructor(scene: g.Scene) {
     this.scene = scene;
@@ -8,6 +12,7 @@ export class Score {
       left: this.createScoreLeftLabel(),
       right: this.createScoreRightLabel(),
     };
+    this.point = 0;
   }
 
   show(): void {
@@ -15,19 +20,18 @@ export class Score {
     this.scene.append(this.scoreLabel.right);
   }
 
+  count(): void {
+    this.point += Score.FIXED_POINT;
+    g.game.vars.gameState.score = this.point;
+    const point = this.point.toString();
+    this.scoreLabel.right.x = 540;
+    this.scoreLabel.right.text = point;
+    this.scoreLabel.right.invalidate();
+  }
+
   private createScoreRightLabel(): g.Label {
     const scene = this.scene;
-    const rightFont = scene.assets['score_num'];
-    const rightGlyph = scene.assets['score_num_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(rightGlyph.data);
-
-    const font = new g.BitmapFont({
-      src: rightFont,
-      map: glyphData.map,
-      defaultGlyphWidth: glyphData.width,
-      defaultGlyphHeight: glyphData.height,
-      missingGlyph: glyphData.missingGlyph,
-    });
+    const font = getFont(this.scene, 'score_num');
 
     const rightLabel = new g.Label({
       scene,
@@ -43,17 +47,7 @@ export class Score {
 
   private createScoreLeftLabel(): g.Label {
     const scene = this.scene;
-    const leftFont = scene.assets['score'];
-    const leftGlyph = scene.assets['score_glyphs'] as g.TextAsset;
-    const glyphData = JSON.parse(leftGlyph.data);
-
-    const font = new g.BitmapFont({
-      src: leftFont,
-      map: glyphData.map,
-      defaultGlyphWidth: glyphData.width,
-      defaultGlyphHeight: glyphData.height,
-      missingGlyph: glyphData.missingGlyph,
-    });
+    const font = getFont(this.scene, 'score');
 
     const leftLabel = new g.Label({
       scene,
