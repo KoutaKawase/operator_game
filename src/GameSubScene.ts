@@ -52,16 +52,22 @@ export class GameSubScene extends SubScene {
     this.choice = new Choice(this);
     this.choice.show();
 
+    this.update.add(super.commonUpdateHandler, this);
     this.update.add(this.updateHandler, this);
 
     await this.runReadySound();
   }
 
   protected updateHandler(): void {
-    super.commonUpdateHandler();
     if (this.isInGame && !this.gameTime?.isFinished()) {
       this.gameTime?.count();
       this.gameTime?.update();
+    }
+
+    if (this.gameTime?.isFinished()) {
+      console.log('done');
+      (this.assets['countdown'] as g.AudioAsset).play();
+      this.update.remove(this.updateHandler, this);
     }
   }
 }

@@ -23,10 +23,10 @@ export abstract class SubScene extends g.Scene {
 
   private setNextSubScene(nextSubScene?: SubScene) {
     this.requestedNestSubScene.add(() => {
-      this.destroy();
       if (!nextSubScene) {
         return;
       }
+      this.destroy();
       g.game.pushScene(nextSubScene);
     });
   }
@@ -34,6 +34,7 @@ export abstract class SubScene extends g.Scene {
   protected commonUpdateHandler(): void {
     const time = g.game.vars.gameState.totalTimeLimit;
     const { isAtsumaru, score } = g.game.vars.gameState;
+    console.log(Math.trunc(time));
 
     if (time <= 0) {
       if (isAtsumaru) {
@@ -42,7 +43,8 @@ export abstract class SubScene extends g.Scene {
           window.RPGAtsumaru.experimental.scoreboards.display(boardId);
         });
       }
-      this.update.remove(this.updateHandler);
+      this.update.remove(this.commonUpdateHandler, this);
+      console.log('end');
     }
     g.game.vars.gameState.totalTimeLimit -= 1 / g.game.fps;
   }
