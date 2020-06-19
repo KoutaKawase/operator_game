@@ -9,6 +9,10 @@ export class Answer {
   private problem: Problem;
   private scene: g.Scene;
   private currectCount: number;
+  //連続正解カウント
+  private continuousCount = 0;
+  //連続正解時付与される追加ポイント
+  private _bonus = 0;
 
   constructor(scene: g.Scene, problem: Problem) {
     this.scene = scene;
@@ -34,6 +38,29 @@ export class Answer {
     const count = this.currectCount.toString();
     this.currectAnswerCountLabel.right.text = count + '回';
     this.currectAnswerCountLabel.right.invalidate();
+  }
+
+  bonusCount(): void {
+    this.continuousCount += 1;
+    //連続正解二回目からボーナス付与させたいので
+    if (this.continuousCount > 1) {
+      //ボーナス計算に使うため
+      const FIXED_BONUS = 250;
+      this._bonus += FIXED_BONUS * this.continuousCount;
+      const bonus = this._bonus.toString();
+      this.bonusPoint.text = '+' + bonus;
+      this.bonusPoint.invalidate();
+    }
+  }
+
+  resetBonus(): void {
+    this.continuousCount = 0;
+    this.bonusPoint.text = '+0';
+    this.bonusPoint.invalidate();
+  }
+
+  get bonus(): number {
+    return this._bonus;
   }
 
   /**

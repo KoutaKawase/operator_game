@@ -45,10 +45,10 @@ export class GameSubScene extends SubScene {
     this.problem.show();
     this.gameTime = new Time(this);
     this.gameTime.show();
-    this.score = new Score(this);
-    this.score.show();
     this.answer = new Answer(this, this.problem);
     this.answer.show();
+    this.score = new Score(this, this.answer);
+    this.score.show();
     this.choice = new Choice(this, this.answer, this.score, this.problem);
     this.choice.show();
 
