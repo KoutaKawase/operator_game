@@ -29,4 +29,6 @@ export const gameAsset = [
   'bonus',
   'bonus_glyphs',
   'finish',
+  'comment',
+  'comment_glyphs',
 ];

@@ -6,6 +6,7 @@ import { Score } from './Score';
 import { Answer } from './Answer';
 import { Choice } from './Choice';
 import { Problem } from './Problem';
+import { FoxComment } from './FoxComment';
 
 export class GameSubScene extends SubScene {
   private isInGame = false;
@@ -49,7 +50,8 @@ export class GameSubScene extends SubScene {
     this.answer.show();
     this.score = new Score(this, this.answer);
     this.score.show();
-    this.choice = new Choice(this, this.answer, this.score, this.problem);
+    const foxComment = new FoxComment(this);
+    this.choice = new Choice(this, this.answer, this.score, this.problem, foxComment);
     this.choice.show();
 
     this.update.add(super.commonUpdateHandler, this);
