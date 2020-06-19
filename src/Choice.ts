@@ -2,21 +2,23 @@ import { Plus, Minus, Cross, Div } from './operatos';
 import { Answer } from './Answer';
 import { Score } from './Score';
 import { Problem } from './Problem';
+import { FoxComment } from './FoxComment';
 
 export type OpeInfo = {
   scene: g.Scene;
   answer: Answer;
   score: Score;
   problem: Problem;
+  fc: FoxComment;
 };
 
 export class Choice {
   private scene: g.Scene;
   private readonly operators: [Plus, Minus, Cross, Div];
 
-  constructor(scene: g.Scene, answer: Answer, score: Score, problem: Problem) {
+  constructor(scene: g.Scene, answer: Answer, score: Score, problem: Problem, fc: FoxComment) {
     this.scene = scene;
-    const operatorInfo = { scene: this.scene, answer, score, problem };
+    const operatorInfo = { scene: this.scene, answer, score, problem, fc };
     const plus = new Plus(operatorInfo);
     const minus = new Minus(operatorInfo);
     const cross = new Cross(operatorInfo);

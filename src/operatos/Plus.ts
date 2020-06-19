@@ -6,7 +6,7 @@ import { OpeInfo } from '../Choice';
 export class Plus extends OperatorSprite {
   protected operator: Operator = '+';
 
-  constructor({ scene, answer, score, problem }: OpeInfo) {
+  constructor({ scene, answer, score, problem, fc }: OpeInfo) {
     super(
       {
         scene,
@@ -18,6 +18,7 @@ export class Plus extends OperatorSprite {
       answer,
       score,
       problem,
+      fc,
     );
   }
 }

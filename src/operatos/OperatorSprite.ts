@@ -2,6 +2,7 @@ import { Operator } from '../Problem';
 import { Answer } from '../Answer';
 import { Score } from '../Score';
 import { Problem } from '../Problem';
+import { FoxComment } from '../FoxComment';
 
 type SpriteInfo = {
   scene: g.Scene;
@@ -18,14 +19,22 @@ export abstract class OperatorSprite extends g.Sprite {
   protected currect: g.AudioAsset;
   protected fail: g.AudioAsset;
   protected problem: Problem;
+  protected foxComment: FoxComment;
 
-  constructor(spriteInfo: SpriteInfo, answer: Answer, score: Score, problem: Problem) {
+  constructor(
+    spriteInfo: SpriteInfo,
+    answer: Answer,
+    score: Score,
+    problem: Problem,
+    fc: FoxComment,
+  ) {
     super(spriteInfo);
     this.answer = answer;
     this.currect = spriteInfo.scene.assets['currect'] as g.AudioAsset;
     this.fail = spriteInfo.scene.assets['fail'] as g.AudioAsset;
     this.score = score;
     this.problem = problem;
+    this.foxComment = fc;
   }
 
   public initHandler(): void {
@@ -38,12 +47,14 @@ export abstract class OperatorSprite extends g.Sprite {
     const isCorrect = this.answer.submit(this.operator);
     if (isCorrect) {
       this.currect.play();
+      this.foxComment.flashCurrect(this.scene);
       this.answer.count();
       this.answer.bonusCount();
       this.score.count();
       this.problem.reflesh();
     } else {
       this.fail.play();
+      this.foxComment.flashFail(this.scene);
       this.answer.resetBonus();
       this.score.deduct();
       this.problem.reflesh();
