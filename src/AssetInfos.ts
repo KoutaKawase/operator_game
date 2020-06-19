@@ -26,4 +26,6 @@ export const gameAsset = [
   'problem_glyphs',
   'currect',
   'fail',
+  'bonus',
+  'bonus_glyphs',
 ];

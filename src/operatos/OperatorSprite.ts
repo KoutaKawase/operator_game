@@ -39,10 +39,12 @@ export abstract class OperatorSprite extends g.Sprite {
     if (isCorrect) {
       this.currect.play();
       this.answer.count();
+      this.answer.bonusCount();
       this.score.count();
       this.problem.reflesh();
     } else {
       this.fail.play();
+      this.answer.resetBonus();
       this.score.deduct();
       this.problem.reflesh();
     }

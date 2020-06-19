@@ -1,18 +1,21 @@
 import { getFont } from './utils/entityUtil';
+import { Answer } from './Answer';
 
 export class Score {
   private scoreLabel: { left: g.Label; right: g.Label };
   private scene: g.Scene;
   private point: number;
+  private readonly answer: Answer;
   static readonly FIXED_POINT = 2500;
 
-  constructor(scene: g.Scene) {
+  constructor(scene: g.Scene, answer: Answer) {
     this.scene = scene;
     this.scoreLabel = {
       left: this.createScoreLeftLabel(),
       right: this.createScoreRightLabel(),
     };
     this.point = 0;
+    this.answer = answer;
   }
 
   show(): void {
@@ -21,7 +24,8 @@ export class Score {
   }
 
   count(): void {
-    this.point += Score.FIXED_POINT;
+    const bonus = this.answer.bonus;
+    this.point += Score.FIXED_POINT + bonus;
     g.game.vars.gameState.score = this.point;
     this.updateRightLabel(540);
   }
