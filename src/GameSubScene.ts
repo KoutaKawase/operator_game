@@ -1,6 +1,6 @@
 import { SubScene } from './SubScene';
 import type { SceneInfo } from './types/SceneInfo';
-import { createGameUIBase } from './utils/entityUtil';
+import { createGameUIBase, createShadow } from './utils/entityUtil';
 import { Time } from './Time';
 import { Score } from './Score';
 import { Answer } from './Answer';
@@ -27,13 +27,14 @@ export class GameSubScene extends SubScene {
     this.problem = null;
   }
 
-  private runReadySound(): Promise<void> {
+  private runReadySound(shadow: g.FilledRect): Promise<void> {
     (this.assets['countdown'] as g.AudioAsset).play();
 
     //play()だけだとすぐ次の処理にいってしまうのでサウンド分待って次にいくためsetTimeoutをしている
     return new Promise((resolve) => {
       this.setTimeout(() => {
         this.isInGame = true;
+        this.remove(shadow);
         resolve();
       }, GameSubScene.COUNTDOWN_TIME);
     });
@@ -41,6 +42,8 @@ export class GameSubScene extends SubScene {
 
   protected async loadedHandler(): Promise<void> {
     const gameUIBase = createGameUIBase(this);
+    //開始前にゲーム全体を覆う灰色のRect
+    const shadow = createShadow(this);
     this.append(gameUIBase);
     this.problem = new Problem(this);
     this.problem.show();
@@ -53,11 +56,12 @@ export class GameSubScene extends SubScene {
     const foxComment = new FoxComment(this);
     this.choice = new Choice(this, this.answer, this.score, this.problem, foxComment);
     this.choice.show();
+    this.append(shadow);
 
     this.update.add(super.commonUpdateHandler, this);
     this.update.add(this.updateHandler, this);
 
-    await this.runReadySound();
+    await this.runReadySound(shadow);
     this.choice.initHandler();
   }
 

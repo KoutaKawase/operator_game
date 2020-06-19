@@ -72,6 +72,16 @@ export function getProblemPoint(): ProblemPoint {
   return { leftX, leftY, rightX, rightY, equalX, equalY, calculatedX, calculatedY };
 }
 
+export function createShadow(scene: g.Scene): g.FilledRect {
+  return new g.FilledRect({
+    scene,
+    width: g.game.width,
+    height: g.game.width,
+    cssColor: '#999999',
+    opacity: 0.5,
+  });
+}
+
 export function getFont(scene: g.Scene, assetsName: string): g.BitmapFont {
   const font = scene.assets[assetsName];
   const glyph = scene.assets[`${assetsName}_glyphs`] as g.AudioAsset;
