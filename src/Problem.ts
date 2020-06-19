@@ -132,8 +132,8 @@ export class Problem {
       '/': [],
     };
 
-    for (let left = 1; left < 10; left++) {
-      for (let right = 1; right < 10; right++) {
+    for (let left = 1; left < 20; left++) {
+      for (let right = 1; right < 20; right++) {
         if (!isOperatorDuplicate(left, right)) {
           combinatonList = this.storeCombinations(left, right, combinatonList);
         }
