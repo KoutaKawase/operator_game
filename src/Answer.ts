@@ -45,8 +45,8 @@ export class Answer {
     //連続正解二回目からボーナス付与させたいので
     if (this.continuousCount > 1) {
       //ボーナス計算に使うため
-      const FIXED_BONUS = 250;
-      this._bonus += FIXED_BONUS * this.continuousCount;
+      const FIXED_BONUS = 50;
+      this._bonus = FIXED_BONUS * this.continuousCount;
       const bonus = this._bonus.toString();
       this.bonusPoint.text = '+' + bonus;
       this.bonusPoint.invalidate();

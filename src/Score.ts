@@ -6,7 +6,7 @@ export class Score {
   private scene: g.Scene;
   private point: number;
   private readonly answer: Answer;
-  static readonly FIXED_POINT = 2500;
+  static readonly FIXED_POINT = 300;
 
   constructor(scene: g.Scene, answer: Answer) {
     this.scene = scene;
@@ -32,7 +32,7 @@ export class Score {
 
   deduct(): void {
     if (this.point === 0) return;
-    const deductPoint = 500;
+    const deductPoint = 200;
     this.point -= deductPoint;
     g.game.vars.gameState.score = this.point;
     this.updateRightLabel();

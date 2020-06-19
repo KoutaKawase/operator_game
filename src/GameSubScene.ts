@@ -66,8 +66,8 @@ export class GameSubScene extends SubScene {
     }
 
     if (this.gameTime?.isFinished()) {
-      console.log('done');
-      (this.assets['countdown'] as g.AudioAsset).play();
+      (this.assets['finish'] as g.AudioAsset).play();
+      this.choice?.blockTouch();
       this.update.remove(this.updateHandler, this);
     }
   }

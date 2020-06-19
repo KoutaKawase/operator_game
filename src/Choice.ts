@@ -35,4 +35,10 @@ export class Choice {
       o.initHandler();
     });
   }
+
+  blockTouch(): void {
+    this.operators.forEach((o) => {
+      o.touchable = false;
+    });
+  }
 }

@@ -292,6 +292,12 @@
 		"bonus_glyphs": {
 			"type": "text",
 			"path": "text/bonus_glyphs.json"
+		},
+		"finish": {
+			"type": "audio",
+			"path": "audio/finish",
+			"systemId": "sound",
+			"duration": 2737
 		}
 	},
 	"environment": {
