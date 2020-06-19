@@ -4,6 +4,8 @@ import { Problem } from './Problem';
 
 export class Answer {
   private currectAnswerCountLabel: { left: g.Label; right: g.Label };
+  private bonusText: g.Label;
+  private bonusPoint: g.Label;
   private problem: Problem;
   private scene: g.Scene;
   private currectCount: number;
@@ -16,11 +18,15 @@ export class Answer {
     };
     this.problem = problem;
     this.currectCount = 0;
+    this.bonusText = this.createBonusTextLabel();
+    this.bonusPoint = this.createBonusPointLabel();
   }
 
   show(): void {
     this.scene.append(this.currectAnswerCountLabel.left);
     this.scene.append(this.currectAnswerCountLabel.right);
+    this.scene.append(this.bonusText);
+    this.scene.append(this.bonusPoint);
   }
 
   count(): void {
@@ -70,5 +76,33 @@ export class Answer {
     });
 
     return leftLabel;
+  }
+
+  private createBonusTextLabel(): g.Label {
+    const scene = this.scene;
+    const font = getFont(scene, 'bonus');
+    const bonusText = new g.Label({
+      scene,
+      text: '連続正解ボーナス付与',
+      font,
+      x: 390,
+      y: 135,
+      fontSize: font.size,
+    });
+    return bonusText;
+  }
+
+  private createBonusPointLabel(): g.Label {
+    const scene = this.scene;
+    const font = getFont(scene, 'bonus');
+    const bonusPoint = new g.Label({
+      scene,
+      text: '+0',
+      font,
+      x: 500,
+      y: 165,
+      fontSize: font.size,
+    });
+    return bonusPoint;
   }
 }

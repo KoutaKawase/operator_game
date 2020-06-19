@@ -282,6 +282,16 @@
 			"width": 250,
 			"height": 200,
 			"path": "image/koukoku.png"
+		},
+		"bonus": {
+			"type": "image",
+			"width": 128,
+			"height": 96,
+			"path": "image/bonus.png"
+		},
+		"bonus_glyphs": {
+			"type": "text",
+			"path": "text/bonus_glyphs.json"
 		}
 	},
 	"environment": {
