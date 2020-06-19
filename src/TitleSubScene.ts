@@ -13,14 +13,18 @@ export class TitleSubScene extends SubScene {
 
     this.update.add(this.updateHandler);
 
-    const background = new g.FilledRect({
+    //const background = new g.FilledRect({
+    //  scene: this,
+    //  width: g.game.width,
+    //  height: g.game.height,
+    //  opacity: 0.2,
+    //  cssColor: '#FFCC66',
+    //});
+    const bg = new g.Sprite({
       scene: this,
-      width: g.game.width,
-      height: g.game.height,
-      opacity: 0.2,
-      cssColor: '#FFCC66',
+      src: this.assets['titleBg'],
     });
-    this.append(background);
+    this.append(bg);
 
     const fox = new g.Sprite({
       scene: this,

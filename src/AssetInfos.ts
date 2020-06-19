@@ -5,6 +5,7 @@ export const titleAssets = [
   'zzz',
   'titleBgm',
   'koukoku',
+  'titleBg',
 ];
 export const descriptionAsset = ['descBack', 'description', 'description_glyphs'];
 export const gameAsset = [

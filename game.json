@@ -184,6 +184,12 @@
 			"type": "text",
 			"path": "text/comment_glyphs.json"
 		},
+		"titleBg": {
+			"type": "image",
+			"width": 640,
+			"height": 360,
+			"path": "image/titleBg.png"
+		},
 		"Answer": {
 			"type": "script",
 			"path": "script/Answer.js",
@@ -207,6 +213,11 @@
 		"FoxComment": {
 			"type": "script",
 			"path": "script/FoxComment.js",
+			"global": true
+		},
+		"FoxComments": {
+			"type": "script",
+			"path": "script/FoxComments.js",
 			"global": true
 		},
 		"GameSubScene": {
